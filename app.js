@@ -1,8 +1,10 @@
 let a={
-  'sphere':true, //ainda está ativo
+  'sphere':false, //ainda está ativo
   'cylinder':true,
   'cube':true
 };
+
+let string_value = "Lista de Palavras:";
 
 AFRAME.registerComponent('button', {
     init: function () {
@@ -32,18 +34,25 @@ AFRAME.registerComponent('button', {
 
   AFRAME.registerComponent('list', {
     init: function () {
-      var data=this.data
-      var el = this.el;
+      // Wait for the scene to load before setting the value
+      this.el.addEventListener('loaded', () => {
+          // Concatenate string_value with all keys from the 'a' object
+          let concatenatedString = string_value + "\n";
+          for (const key in a) {
+              if (a[key]) {
+                  concatenatedString += "o - ";
+              }
+              else {
+                  concatenatedString += "x - ";
+              }
+              concatenatedString += key + "\n";
+          }
+          // Set the concatenated string as the value of the <a-text> element
+          this.el.setAttribute('value', concatenatedString);
+      });
+  }
+});
 
-      // var str=""
-      // a.forEach(key=>{
-      //   str+=`${key}<b>`
-      // })
-      console.log("TESTE")
-    },
-    update:function(){
-      this.el.setAttribute('value',"a")
-    }
-  });
 
-  document.getElementById('list').setAttribute('value',"a")
+// You can set the initial value as well
+document.getElementById('list').setAttribute('value', string_value);
