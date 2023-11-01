@@ -1,28 +1,32 @@
 <doctype html lang="en">
-<head>
-    <!-- Include A-Frame library -->
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-event-set-component/dist/aframe-event-set-component.min.js"></script>
-    <script src="app.js"></script>
-
+  <head>
+      <!-- Include A-Frame library -->
+      <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+      <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+      <script src="https://unpkg.com/aframe-event-set-component/dist/aframe-event-set-component.min.js"></script>
+      <script src="app.js"></script>
+      <style>
+        .bold-text {
+          font-weight: bold;
+          font-size: 20;
+        }
+      </style>
   </head>
   <body>
-    <!-- Create a virtual reality scene -->
-    <a-scene>
-      <!-- <a-text id="list" position="-0.541 2.07344 0.243" lineheight:'50px'="" value="a" list="" text="value: Hello World"></a-text> -->
-      <a-box value='cube' position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" button></a-box>
-      <a-sphere  value="sphere" position="0 1.25 -5" radius="1.25" color="#EF2D5E" button></a-sphere>
-      <a-cylinder value='cylinder' position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" button></a-cylinder>
-      <a-entity id="car" obj-model="obj: Cadillac_CT4_V_2022.obj" scale="0.01 0.01 0.01" rotation="0.32 -17.08 0" position="1.77416 0 1.134" material="src: textura.png" button></a-entity>      
-      <a-entity  obj-model="obj: url(Underground Garage Scene.obj); mtl: url(Underground Garage Scene.mtl)"></a-entity>
-      <a-camera>
-        <!-- <a-entity obj-model="obj: url(bath/uploads_files_4167220_bathroom.obj); mtl: url(bath/uploads_files_4167220_bathroom.mtl)"></a-entity> -->
-        <a-cursor></a-cursor>
-        <a-box color="#FFFFFF" position="1.5 0.5 -1" width = "0.75" height= "1" depth= "0.001" >
-          <a-text position="0 0.25 0" value="Lista de Palavras:" color ="#000000" width = "0.5" height= "0.5" anchor="center" list></a-text>
-        </a-box>
-      </a-camera>
-    </a-scene>
+      <!-- Create a virtual reality scene -->
+      <a-scene>
+          <a-box value='cube' position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" button></a-box>
+          <a-sphere value="sphere" position="0 1.25 -5" radius="1.25" color="#EF2D5E" button></a-sphere>
+          <a-cylinder value='cylinder' position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" button></a-cylinder>
+          <a-entity id="car" obj-model="obj: Cadillac_CT4_V_2022.obj" scale="0.01 0.01 0.01" rotation="0.32 -17.08 0" position="1.77416 0 1.134" material="src: textura.png" button></a-entity>
+          <a-entity obj-model="obj: url(Underground Garage Scene.obj); mtl: url(Underground Garage Scene.mtl)"></a-entity>
+          <a-camera>
+              <a-cursor></a-cursor>
+              <a-box color="#FFFFFF" position="1.5 0.5 -1" width="0.75" height="1" depth="0.001">
+                  <a-text position="0 0.25 0" color="#000000" width="0.5" height="0.5" anchor="center" class="bold-text" list></a-text>
+              </a-box>
+          </a-camera>
+      </a-scene>
   </body>
-</html>
+  </html>
+  
