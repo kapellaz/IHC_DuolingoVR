@@ -1,7 +1,9 @@
 let a={
-  'sphere':false, //ainda está ativo
+  'sphere':true, //ainda está ativo
   'cylinder':true,
-  'cube':true
+  'cube':true,
+  'car':true,
+  'tire':true,
 };
 
 let list_component;
@@ -44,6 +46,7 @@ AFRAME.registerComponent('button', {
       });
 
       el.addEventListener('click',function(){
+        if(a[el.getAttribute('value')]==true){
           a[el.getAttribute('value')]=false;
 
           //update list
@@ -57,11 +60,8 @@ AFRAME.registerComponent('button', {
               }
               concatenatedString += key + "\n";
           }
-
           list_component.setAttribute('value', concatenatedString);
-
-          if(el.getAttribute('opacity')==0.5) el.setAttribute("opacity",1.0);             
-          else el.setAttribute("opacity",0.5);
+        }
       })
     }
   });
