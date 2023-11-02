@@ -16,14 +16,36 @@
           <a-entity value="tire" id="tire" obj-model="obj: tire.obj" scale="0.01 0.01 0.01" rotation="22.722360239298187 -90.00021045914971 -90.00021045914971" position="4.2355 0.10981 3.134" material="src: tire.mtl" button></a-entity>
           <!-- NAO FUNCIONA <a-entity value="tire" id="tire" obj-model="obj: url(tire.obj); mtl: url(tire.mtl)" scale="0.01 0.01 0.01" rotation="22.722360239298187 -90.00021045914971 -90.00021045914971" position="4.2355 0.10981 3.134" color="black" button></a-entity>-->
           <a-entity obj-model="obj: url(Underground Garage Scene.obj); mtl: url(Underground Garage Scene.mtl)"></a-entity>
-          <a-camera>
+          <a-camera><a-text id="timer" position="0.88591 0.08675 -0.95363" color="#118" text="" scale="0.2 0.3 0.5"></a-text>
+            
             <a-cursor></a-cursor>
-            <a-box color="#FFFFFF" position="1.3 0.5 -1" width="0.80" height="1" depth="0.001" material="shader: flat; metalness: 0; roughness: 0">
+            <a-box color="#FF5733" position="1.3 0.5 -1" width="0.80" height="1" depth="0.001" material="shader: flat; metalness: 0; roughness: 0">
               <a-text position="0.1 0.15 0.05" color="#000000" width="0.5" height="0.5" anchor="center" font="kelsonsans" scale="2 2 2" list></a-text>
           </a-box>          
         </a-camera>
-        
+      
       </a-scene>
+  
+      <script>
+        // Initialize variables
+        let time = 0; // Initial time in seconds
+        const timerText = document.getElementById('timer');
+  
+        // Function to update the timer text
+        function updateTimer() {
+          timerText.setAttribute('value', `Time: ${time} seconds`);
+          time++;
+          
+          // Check if your boolean variable is true
+          if (all_found) {
+            clearTimeout(timerInterval); // Stop the timer
+            timerText.setAttribute('value', 'Task completed!');
+          }
+        }
+  
+        // Check and update the timer every second (1000 milliseconds)
+        const timerInterval = setInterval(updateTimer, 1000);
+      </script>
   </body>
   </html>
   

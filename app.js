@@ -5,6 +5,8 @@ let a={
   'car':true,
   'tire':true,
 };
+let count_found = 0;
+let all_found = false;
 
 let list_component;
 let string_value = "Lista de Palavras:";
@@ -48,6 +50,10 @@ AFRAME.registerComponent('button', {
       el.addEventListener('click',function(){
         if(a[el.getAttribute('value')]==true){
           a[el.getAttribute('value')]=false;
+          count_found++;
+          if (count_found == Object.keys(a).length){
+            all_found = true;
+          }
 
           //update list
           let concatenatedString = string_value + "\n";
@@ -90,3 +96,4 @@ AFRAME.registerComponent('button', {
 
 // You can set the initial value as well
 document.getElementById('list').setAttribute('value', string_value);
+
