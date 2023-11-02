@@ -28,18 +28,31 @@
   
       <script>
         // Initialize variables
-        let time = 0; // Initial time in seconds
+        let second = 0; // Initial time in seconds
+        let minute = 0;
         const timerText = document.getElementById('timer');
   
         // Function to update the timer text
         function updateTimer() {
-          timerText.setAttribute('value', `Time: ${time} seconds`);
-          time++;
+          let second_string = "0";
+          let minute_string = "0";
+          if (second < 10) second_string = second_string + second.toString();
+          else second_string = second;
+          if (minute < 10) minute_string = minute_string + minute.toString();
+          else minute_string = minute;
+          timerText.setAttribute('value', `Time: ${minute_string}:${second_string}`);
+          second++;
+          if (second == 60) {
+            second = 0;
+            minute++;
+          }
+          
           
           // Check if your boolean variable is true
           if (all_found) {
             clearTimeout(timerInterval); // Stop the timer
             timerText.setAttribute('value', 'Task completed!');
+            timerText.setAttribute('color', '#882');
           }
         }
   
