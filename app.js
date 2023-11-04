@@ -1,8 +1,10 @@
 let a={
-  'car':true,
+  'barrel':true,
   'engine':true,
   'wheel':true,
   'workbench':true,
+  'car': true,
+  'canister': true,
 };
 
 
