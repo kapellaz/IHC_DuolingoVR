@@ -8,7 +8,11 @@ let count_found = 0;
 let all_found = false;
 
 let list_component;
+let cursor;
 let string_value = "Lista de Palavras:";
+
+
+
 AFRAME.registerComponent('list', {
   init: function () {
     // Wait for the scene to load before setting the value
@@ -30,21 +34,18 @@ AFRAME.registerComponent('list', {
     });
 }
 });
+
 AFRAME.registerComponent('button', {
     init: function () {
       var el = this.el;
-
-      var defaultColor = el.getAttribute('material').color;
+      cursor = document.getElementById('cursor');
 
       el.addEventListener('mouseenter', function () {
-        el.setAttribute('color','red');
-        el.setAttribute('material','color:red');
-
+        cursor.setAttribute('color', "green");
       });
       
       el.addEventListener('mouseleave', function () {
-        el.setAttribute('color', defaultColor);
-        el.setAttribute('material',`color:${defaultColor}`)
+        cursor.setAttribute('color', "#FF5733");
       });
 
 
@@ -94,6 +95,8 @@ AFRAME.registerComponent('button', {
       });
   }
 });
+
+
 
 
 // You can set the initial value as well
