@@ -4,6 +4,12 @@ let a={
   'wheel':true,
   'workbench':true,
 };
+
+
+let acoes = {
+  'change oil':['oil','car'], //removido da lista quando encontrado
+}
+
 let count_found = 0;
 let all_found = false;
 
@@ -41,7 +47,8 @@ AFRAME.registerComponent('button', {
       cursor = document.getElementById('cursor');
 
       el.addEventListener('mouseenter', function () {
-        cursor.setAttribute('color', "green");
+        if (a[el.getAttribute('value')]==true) cursor.setAttribute('color', "green");
+        else cursor.setAttribute('color', "cyan");
       });
       
       el.addEventListener('mouseleave', function () {
