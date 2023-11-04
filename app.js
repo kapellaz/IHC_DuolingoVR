@@ -1,9 +1,8 @@
 let a={
-  'sphere':true, //ainda está ativo
-  'cylinder':true,
-  'cube':true,
   'car':true,
-  'tire':true,
+  'engine':true,
+  'wheel':true,
+  'workbench':true,
 };
 let count_found = 0;
 let all_found = false;
@@ -34,6 +33,7 @@ AFRAME.registerComponent('list', {
 AFRAME.registerComponent('button', {
     init: function () {
       var el = this.el;
+
       var defaultColor = el.getAttribute('material').color;
 
       el.addEventListener('mouseenter', function () {
@@ -41,11 +41,13 @@ AFRAME.registerComponent('button', {
         el.setAttribute('material','color:red');
 
       });
-
+      
       el.addEventListener('mouseleave', function () {
         el.setAttribute('color', defaultColor);
         el.setAttribute('material',`color:${defaultColor}`)
       });
+
+
 
       el.addEventListener('click',function(){
         if(a[el.getAttribute('value')]==true){

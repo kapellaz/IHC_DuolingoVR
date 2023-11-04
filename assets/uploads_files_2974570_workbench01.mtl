@@ -1,0 +1,121 @@
+# Blender MTL File: 'workbench01.blend'
+# Material Count: 10
+
+newmtl Drawers
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.049140 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump textures_workbench\\Wood051_4K_Normal.jpg
+map_Kd textures_workbench\\Wood051_4K_Color.jpg
+map_Ns textures_workbench\\Wood051_4K_Roughness.jpg
+
+newmtl Fabric
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump textures_workbench\\Fabric043_2K_Normal.jpg
+map_Ns textures_workbench\\Fabric043_2K_Roughness.jpg
+
+newmtl Handles
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.049140 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump textures_workbench\\Wood051_4K_Normal.jpg
+map_Ns textures_workbench\\Wood051_4K_Roughness.jpg
+
+newmtl Iron_Touched
+Ns 900.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.276432 0.276432 0.276432
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+
+newmtl Metal
+Ns 387.335888
+Ka 1.000000 1.000000 1.000000
+Kd 0.094626 0.094626 0.094626
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Bump -bm 0.100000 -s 0.500000 0.500000 0.500000 textures_workbench\\Scratches005_4K_Normal.jpg
+
+newmtl Top
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.173355 0.173355 0.173355
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump -bm 0.500000 textures_workbench\\Wood060_4K_Normal.jpg
+map_Kd textures_workbench\\Wood060_4K_Color.jpg
+
+newmtl legs
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.100161 0.184469
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump textures_workbench\\Wood022_4K_Normal.jpg
+map_Kd textures_workbench\\Wood022_4K_Color.jpg
+map_Ns textures_workbench\\Wood022_4K_Roughness.jpg
+
+newmtl legs.001
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.100161 0.184469
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump textures_workbench\\Wood022_4K_Normal.jpg
+map_Kd textures_workbench\\Wood022_4K_Color.jpg
+map_Ns textures_workbench\\Wood022_4K_Roughness.jpg
+
+newmtl sides
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.023651 0.023651 0.023651
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump textures_workbench\\Wood022_4K_Normal.jpg
+map_Kd textures_workbench\\Wood022_4K_Color.jpg
+
+newmtl steel
+Ns 428.097733
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd textures_workbench\\Scratches005_4K_var2.jpg

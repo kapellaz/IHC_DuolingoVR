@@ -1,0 +1,35 @@
+# Blender MTL File: 'wheel_Kamaz_OffRoad.blend'
+# Material Count: 3
+
+newmtl disc_mat
+Ns 225.000027
+Ka 0.681818 0.681818 0.681818
+Kd 0.800000 0.800000 0.800000
+Ks 0.218182 0.218182 0.218182
+Ke 0.0 0.0 0.0
+Ni 1.450000
+d 1.000000
+illum 3
+map_Bump normal_map.png
+
+newmtl steeel
+Ns 182.249990
+Ka 0.904545 0.904545 0.904545
+Kd 0.800000 0.800000 0.800000
+Ks 0.809091 0.809091 0.809091
+Ke 0.0 0.0 0.0
+Ni 1.450000
+d 1.000000
+illum 3
+map_Bump normal_map.png
+
+newmtl tire_mat
+Ns 225.000000
+Ka 0.500000 0.500000 0.500000
+Kd 0.800000 0.800000 0.800000
+Ks 0.200000 0.200000 0.200000
+Ke 0.0 0.0 0.0
+Ni 1.450000
+d 1.000000
+illum 3
+map_Bump normal_map.png
