@@ -1,6 +1,3 @@
-
-
-
 let all_selected = [];
 
 let count_found = 0;
@@ -139,10 +136,34 @@ function updateTimer() {
 
 // Function to toggle visibility of the A-Frame entity
 function toggleVisibility() {
-var myBox = document.getElementById('myBox');
-myBox.getAttribute('visible') ? myBox.setAttribute('visible', false) : myBox.setAttribute('visible', true);
-}
+  var myBox = document.getElementById('myBox');
+  var text_list = document.getElementById('text_list');
+  var timer = document.getElementById('timer');
+  var visible=myBox.getAttribute('value');
 
+  myBox.setAttribute('animation__out', {'property': 'scale','to':'0 0 0','startEvents': 'outAnimation'});
+  text_list.setAttribute('animation__out', {'property': 'scale','to':0,'startEvents': 'outAnimation'});
+  timer.setAttribute('animation__out', {'property': 'scale','to':0,'startEvents': 'outAnimation'});
+
+  myBox.setAttribute('animation__in', {'property': 'scale','from':'0 0 0','to':'0.5 0.5 0.5','startEvents': 'inAnimation'});
+  text_list.setAttribute('animation__in', {'property': 'scale','from':'0 0 0','to':'2 2 2','startEvents': 'inAnimation'});
+  timer.setAttribute('animation__in', {'property': 'scale','from':'0 0 0','to':'0.2 0.3 0.5','startEvents': 'inAnimation'});
+
+  if(visible==='1'){
+    // myBox.setAttribute('visible',false);
+    myBox.emit('outAnimation',null, false)
+    text_list.emit('outAnimation',null, false)
+    timer.emit('outAnimation',null, false)
+    myBox.setAttribute('value','0')
+  }
+  else{
+    myBox.emit('inAnimation',null, false)
+    text_list.emit('inAnimation',null, false)
+    timer.emit('inAnimation',null, false)
+    //myBox.setAttribute('visible',true);
+    myBox.setAttribute('value','1')
+  }
+}
 
 
 // Add event listener for the 'L' key press
@@ -155,3 +176,6 @@ document.addEventListener('keydown', function (event) {
 let second = 0; // Initial time in seconds
 let minute = 0;
 const timerInterval = setInterval(updateTimer, 1000);
+
+document.getElementById('myBox').setAttribute('value','1')
+
