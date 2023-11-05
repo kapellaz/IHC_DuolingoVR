@@ -1,0 +1,57 @@
+<doctype html lang="en">
+  <head>
+      <!-- Include A-Frame library -->
+      <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+      <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+      <script src="https://unpkg.com/aframe-event-set-component/dist/aframe-event-set-component.min.js"></script>
+      <script> 
+        let name_scenario='garage'
+        let a={
+          'car':true,
+          'engine':true,
+          'wheel':true,
+          'workbench':true,
+        };
+        let acoes = { // pressupomos acoes de 2 objetos apenas
+          'change oil':['canister','car'], //removido da lista quando encontrado até
+        }
+      </script>
+      <script src="scenario.js"></script>
+  </head>
+  <body>
+      <!-- Create a virtual reality scene -->
+      <a-scene keyboard-shortcuts>
+          <a-assets>
+            <a-asset-item id="cenario-o" src="assets/Garage.obj"></a-asset-item>
+            <a-asset-item id="cenario-m" src="assets/Garage.mtl"></a-asset-item>
+            <a-asset-item id="table-o" src="assets/uploads_files_2729080_Workshop+table+Mesa+de+trabajo.obj"></a-asset-item>
+            <a-asset-item id="workbench-o" src="assets/uploads_files_2974570_workbench01.obj"></a-asset-item>
+            <a-asset-item id="workbench-m" src="assets/uploads_files_2974570_workbench01.mtl"></a-asset-item>
+            <a-asset-item id="engine-o" src="assets/Engine.obj"></a-asset-item>
+            <a-asset-item id="engine-m" src="assets/Engine.mtl"></a-asset-item>
+            <a-asset-item id="wheel-o" src="assets/e05.obj"></a-asset-item>
+            <a-asset-item id="wheel-m" src="assets/e05.mtl"></a-asset-item>
+            <a-asset-item id="tank-o" src="assets/tank.obj"></a-asset-item>
+            <a-asset-item id="tank-m" src="assets/tank.mtl"></a-asset-item>
+          </a-assets> 
+          <!---
+          <a-entity value="table" id="table" scale="0.01 0.01 0.01" obj-model="obj: #table-o;" button=""></a-entity>
+        -->
+        <a-entity value="workbench" id="workbench" obj-model="obj: #workbench-o; mtl: #workbench-m" button="" color="white" rotation="0 90 0" position="-6.747 0 1.421"></a-entity>
+        <a-entity value="engine" id="engine" obj-model="obj: assets/Engine.obj; mtl: assets/Engine.mtl" button="" scale="0.01 0.01 0.01" color="white" rotation="0 90 0" position="-12.57338 0.426 7.06889"></a-entity>
+        <a-entity value="wheel" id="wheel" obj-model="obj: assets/e05.obj; mtl: assets/e05.mtl" button="" scale="0.008 0.008 0.008" color="white" rotation="" position="-14.69965 0.30376 -0.58311"></a-entity>
+        <a-entity value="cenario" obj-model="obj: #cenario-o; mtl: #cenario-m" scale = "0.1 0.1 0.1"position="0 -1 0"></a-entity>
+        <a-entity value="car" id="car" obj-model="obj: Cadillac_CT4_V_2022.obj" scale="0.01 0.01 0.01" rotation="0.32 -90 0" position="5.5996 0.49509 8.96771" material="src: textura.png" button=""></a-entity>
+        <a-entity value="barrel" id="barrel" obj-model="obj: assets/Drum.obj" scale="0.3 0.3 0.3" rotation="0.32 -90 0" position="9.74346 0 -0.308" color="white" material="src: assets/RadioactiveBarrel.png" button=""></a-entity>
+        <a-entity value="canister" id="canister" obj-model="obj: assets/FuelCanister.obj" scale="0.5 0.5 0.3" rotation="0.32 -90 0" position="-1.40059 0.3946 12.06952" color="white" material="src: assets/FuelCanister.png" button=""></a-entity>
+        <a-camera>
+          <a-cursor id="cursor" color="#FF5733"> </a-cursor>
+          <a-box id="myBox" color="#FF5733" position="0.292 0.0 -0.5" width="0.50" height="1" depth="0.0000000000000000001" material="shader: flat" geometry="" visible="" scale="0.5 0.5 0.5">
+            <a-text position="0.26973 0.10672 0.05" color="#000000" width="0.5" height="0.5" anchor="center" font="kelsonsans" scale="2 2 2" list="" text="" ></a-text>
+            <a-text id="timer" position="-0.22181 -0.43423 0.006" color="#118" text="" scale="0.2 0.3 0.5"></a-text>
+          </a-box>
+        </a-camera>
+      </a-scene>
+  </body>
+  </html>
+  
