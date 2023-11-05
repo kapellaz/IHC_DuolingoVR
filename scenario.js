@@ -83,11 +83,6 @@ AFRAME.registerComponent('button', {
   }
 });
 
-function toggleVisibility() {
-  var myBox = document.getElementById('myBox');
-  myBox.getAttribute('visible') ? myBox.setAttribute('visible', false) : myBox.setAttribute('visible', true);
-}
-
 
 
 
