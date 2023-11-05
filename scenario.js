@@ -102,6 +102,9 @@ function updateTimer() {
   }
 
   if (all_found && all_done) {
+    var sound=document.getElementById('sound');
+    sound.setAttribute('sound','src: url(yes.mp3)');
+    sound.components.sound.playSound();
     clearTimeout(timerInterval); 
     timerText.setAttribute('value', 'Complete! ' + timerText.getAttribute('value'));
     timerText.setAttribute('color', 'green');
