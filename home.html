@@ -6,7 +6,7 @@
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <style>
       body {
-        background-color: #f5f5f5;
+        background:#0077EE;
         font-family: Arial, sans-serif;
         text-align: center;
         padding: 20px;
@@ -15,7 +15,7 @@
         position: relative;
       }
       h1 {
-        color: #333;
+        color: #222222;
       }
       .image-container {
         display: flex;
@@ -29,57 +29,43 @@
         max-height: 100%;
         display: block;
         margin: 0 auto;
+        border-radius: 50%;
       }
-      .nav-arrows {
+      .nav-buttons {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        align-items: center;
         margin-top: 20px;
       }
-      .nav-arrows a {
+      .nav-button {
         background-color: #FF5733;
         color: #000;
         text-decoration: none;
-        border-radius: 50%;
+        border-radius: 5px;
         font-weight: bold;
-        padding: 10px;
-        width: 40px;
-        height: 40px;
         display: flex;
         justify-content: center;
         align-items: center;
         transition: background-color 0.3s;
         cursor: pointer;
+        margin: 0 10px; /* Add margin for spacing */
       }
-      .nav-arrows a:hover {
-        background-color: #FF8F66;
-      }
-      .start-button {
-        margin-top: 20px;
-        background-color: #FF5733;
-        color: #000;
-        font-weight: bold;
-        padding: 10px 20px;
-        border: 2px solid #000;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-      .start-button:hover {
+      .nav-button:hover {
         background-color: #FF8F66;
       }
     </style>
   </head>
   <body>
-    <h1>Duoling VR</h1>
+    <h1>Duolingo VR</h1>
     <div class="container">
-      <div class="nav-arrows">
-        <a href="#" id="left-arrow" onclick="showGarage()">&#8592;</a>
-        <div class="image-container" id="image-container">
-          <img src="garage.jpg" alt="Garage Image" id="current-image">
-        </div>
-        <a href="#" id="right-arrow" onclick="showCountryside()">&#8594;</a>
+      <div class="image-container" id="image-container">
+        <img src="garage.jpg" alt="Garage Image" id="current-image" style="object-fit: cover; width: 200px; height: 200px;">
       </div>
-      <button class="start-button" id="start-button" onclick="navigate('garage.html')">Start</button>
+      <div class="nav-buttons">
+        <a href="#" id="left-button" class="nav-button" onclick="showGarage()">Left</a>
+        <button class="start-button nav-button" id="start-button" onclick="navigate('garage.html')">Start</button>
+        <a href="#" id="right-button" class="nav-button" onclick="showCountryside()">Right</a>
+      </div>
     </div>
 
     <script>
