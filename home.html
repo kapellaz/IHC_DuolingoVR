@@ -6,7 +6,7 @@
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <style>
       body {
-        background:#0077EE;
+        background: #0077EE;
         font-family: Arial, sans-serif;
         text-align: center;
         padding: 20px;
@@ -31,6 +31,23 @@
         margin: 0 auto;
         border-radius: 50%;
       }
+      .navigation-indicators {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+      }
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin: 0 5px;
+        background-color: #FF5733;
+        transition: width 0.3s, height 0.3s;
+      }
+      .dot.inactive {
+        background-color: #CCCCCC;
+      }
       .nav-buttons {
         display: flex;
         justify-content: center;
@@ -43,6 +60,7 @@
         text-decoration: none;
         border-radius: 5px;
         font-weight: bold;
+        padding: 10px 20px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -53,6 +71,10 @@
       .nav-button:hover {
         background-color: #FF8F66;
       }
+      .nav-button.disabled {
+        background-color: #CCCCCC;
+        cursor: not-allowed;
+      }
     </style>
   </head>
   <body>
@@ -60,6 +82,10 @@
     <div class="container">
       <div class="image-container" id="image-container">
         <img src="garage.jpg" alt="Garage Image" id="current-image" style="object-fit: cover; width: 200px; height: 200px;">
+      </div>
+      <div class="navigation-indicators">
+        <div class="dot"></div>
+        <div class="dot inactive"></div>
       </div>
       <div class="nav-buttons">
         <a href="#" id="left-button" class="nav-button" onclick="showGarage()">Left</a>
@@ -70,6 +96,7 @@
 
     <script>
       let currentImage = 'garage.jpg';
+      let currentIndex = 0;
 
       function showGarage() {
         currentImage = 'garage.jpg';
@@ -77,6 +104,8 @@
         document.getElementById('start-button').onclick = function () {
           navigate('garage.html');
         };
+        currentIndex = 0;
+        updateNavigationIndicators(currentIndex);
       }
 
       function showCountryside() {
@@ -85,6 +114,8 @@
         document.getElementById('start-button').onclick = function () {
           navigate('countryside.html');
         };
+        currentIndex = 1;
+        updateNavigationIndicators(currentIndex);
       }
 
       function navigate(destination) {
@@ -92,6 +123,18 @@
           window.location.href = destination;
         }
       }
+
+      function updateNavigationIndicators(activeIndex) {
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+          if (index === activeIndex) {
+            dot.classList.remove('inactive');
+          } else {
+            dot.classList.add('inactive');
+          }
+        });
+      }
     </script>
   </body>
 </html>
+
