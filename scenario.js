@@ -6,6 +6,17 @@ let all_done = false;  // todas ações realizadas
 let list_component;
 let cursor;
 
+function textToSpeech(text){
+  let utterance = new SpeechSynthesisUtterance();
+      
+  // Set the text and voice of the utterance
+  utterance.text = text;
+  utterance.voice = window.speechSynthesis.getVoices()[1];
+
+  // Speak the utterance
+  window.speechSynthesis.speak(utterance);
+}
+
 function updateList() {
   let concatenatedString = "Objetos:" + "\n";
   for (const key in a) {
@@ -55,6 +66,7 @@ AFRAME.registerComponent('button', {
     el.addEventListener('click', function () {
       let in_action = false;
       if (a[objeto] == true) { // objeto por encontrar
+        textToSpeech(objeto);
         a[objeto] = false;
         all_selected.push(objeto);
         count_found++;
@@ -65,9 +77,11 @@ AFRAME.registerComponent('button', {
         for (let key in acoes) {
           if (acoes[key].includes(objeto)) {
             acoes[key] = acoes[key].filter(item => item != objeto);
+            textToSpeech(objeto);
             all_selected.push(objeto);
             in_action = true;
             if (acoes[key].length === 0) {
+              textToSpeech(key + " completed!");
               count_done++;
               if (count_done === Object.keys(acoes).length) {
                 all_done = true;
@@ -95,19 +109,29 @@ function updateTimer() {
   if (minute < 10) minute_string = minute_string + minute.toString();
   else minute_string = minute;
   timerText.setAttribute('value', `Time: ${minute_string}:${second_string}`);
+  // second++;
+  // if (second == 60) {
+  //   second = 0;
+  //   minute++;
+  // }
+
+  if (all_found && all_done) {
+    second_string = "0";
+    minute_string = "0";
+    if (second < 10) second_string = second_string + second.toString();
+    else second_string = second;
+    if (minute < 10) minute_string = minute_string + minute.toString();
+    else minute_string = minute;
+    timerText.setAttribute('value', 'Complete! ' + `Time: ${minute_string}:${second_string}`);
+    timerText.setAttribute('color', 'green');
+    textToSpeech(`Completed in ${minute} minutes and ${second} seconds! Congratulations!`)
+    clearTimeout(timerInterval); 
+  }
+
   second++;
   if (second == 60) {
     second = 0;
     minute++;
-  }
-
-  if (all_found && all_done) {
-    var sound=document.getElementById('sound');
-    sound.setAttribute('sound','src: url(assets/yes.mp3)');
-    sound.components.sound.playSound();
-    clearTimeout(timerInterval); 
-    timerText.setAttribute('value', 'Complete! ' + timerText.getAttribute('value'));
-    timerText.setAttribute('color', 'green');
   }
 }
 
