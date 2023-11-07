@@ -81,7 +81,7 @@
     <h1>Duolingo VR</h1>
     <div class="container">
       <div class="image-container" id="image-container">
-        <img src="garage.jpg" alt="Garage Image" id="current-image" style="object-fit: cover; width: 200px; height: 200px;">
+        <img src="assets/garage.jpg" alt="Garage Image" id="current-image" style="object-fit: cover; width: 200px; height: 200px;">
       </div>
       <div class="navigation-indicators">
         <div class="dot"></div>
@@ -95,11 +95,11 @@
     </div>
 
     <script>
-      let currentImage = 'garage.jpg';
+      let currentImage = 'assets/garage.jpg';
       let currentIndex = 0;
 
       function showGarage() {
-        currentImage = 'garage.jpg';
+        currentImage = 'assets/garage.jpg';
         document.getElementById('current-image').src = currentImage;
         document.getElementById('start-button').onclick = function () {
           navigate('garage.html');
@@ -109,7 +109,7 @@
       }
 
       function showCountryside() {
-        currentImage = 'countryside.jpg';
+        currentImage = 'assets/countryside.jpg';
         document.getElementById('current-image').src = currentImage;
         document.getElementById('start-button').onclick = function () {
           navigate('countryside.html');

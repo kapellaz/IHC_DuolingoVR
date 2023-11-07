@@ -103,7 +103,7 @@ function updateTimer() {
 
   if (all_found && all_done) {
     var sound=document.getElementById('sound');
-    sound.setAttribute('sound','src: url(yes.mp3)');
+    sound.setAttribute('sound','src: url(assets/yes.mp3)');
     sound.components.sound.playSound();
     clearTimeout(timerInterval); 
     timerText.setAttribute('value', 'Complete! ' + timerText.getAttribute('value'));
@@ -153,6 +153,4 @@ document.addEventListener('keydown', function (event) {
 let second = 0; // Initial time in seconds
 let minute = 0;
 const timerInterval = setInterval(updateTimer, 1000);
-
-document.getElementById('myBox').setAttribute('value','1')
 
