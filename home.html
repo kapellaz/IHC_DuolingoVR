@@ -1,57 +1,24 @@
-<!DOCTYPE html>
-<html>
+<doctype html lang="en">
   <head>
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+      <!-- Include A-Frame library -->
+      <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+      <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+      <script src="https://unpkg.com/aframe-event-set-component/dist/aframe-event-set-component.min.js"></script>
+      <script src="home.js"></script>
   </head>
   <body>
-    <a-scene cursor="rayOrigin: mouse" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="" device-orientation-permission-ui="" raycaster="useWorldCoordinates: true; direction: 0.222 0.096 -0.97; origin: -4.938 0.492 7.52">
-      <a-camera camera="" rotation="-10.542423430407151 21.428621537892795 0" look-controls="" wasd-controls="" data-aframe-inspector-original-camera="">
-        <a-cursor id="cursor" color="#FF5733" material="" raycaster="" cursor="" geometry=""></a-cursor>
+    <a-scene>  
+      <a-camera>
+        <a-cursor id="cursor" color="#FF5733"> </a-cursor>
+        <a-box id="myBox" color="#FF5733" position="-0.00756 0 -0.5" width="0.50" height="1" depth="0.0000000000000000001" material="shader: flat" geometry="depth: 0" visible="" scale="2 0.5 0.5">
+          <a-text id="text_list" position="0.26973 0.10672 0.05" color="#000000" width="0.5" height="0.5" anchor="center" font="kelsonsans" scale="2 2 2" list="" text=""></a-text>
+        </a-box>
       </a-camera>
-      
-      <a-box position="-2.116 0.52055 -1.82232" rotation="0 45 0" color="grey" material="flatShading: true" geometry="" name="garage" class="clickable">
-        <a-text position="0 1 0.25" scale="1.5 1.5 1.5" align="center" value="Garage" color="black" text=""></a-text>
+      <a-box value="garage" position="0.95631 0.49009 -2.43418" rotation="0 -33.46360002461573 0" color="#FF1111" button="">
+        <a-text value="garage" position="0.00374 0.19068 0.50086" align="center" width="5" color="#000" ></a-text>
       </a-box>
-      
-      <a-box position="-1.05103 0.50324 -2.91951" rotation="0 18.97005963898643 0" color="grey" name="classroom" material="flatShading: true" geometry="" class="clickable">
-        <a-text position="0 1 0.25" scale="1.5 1.5 1.5" align="center" value="Classroom" color="black" text=""></a-text>
-      </a-box>
-      
-      <a-box position="0.95631 0.49009 -2.43418" rotation="0 -33.46360002461573 0" color="#5733FF" material="color: #FFF; flatShading: true" geometry="" name="howtoplay" class="clickable">
-        <a-text position="0 1 0.25" scale="1.5 1.5 1.5" align="center" value="How to Play" color="black" text=""></a-text>
-      </a-box>
-      
       <a-plane position="0 0 -4" rotation="-90 0 0" width="200" height="200" color="#7BC8A4" material="" geometry=""></a-plane>
-      
-    <div class="a-loader-title" style="display: none;"></div><div class="a-loader-title" style="display: none;"></div></a-scene>
-
-    <script>
-      // Add an event listener for the 'click' event on the clickable objects.
-      const clickableObjects = document.querySelectorAll('.clickable');
-      clickableObjects.forEach((obj) => {
-        obj.addEventListener('click', () => {
-          // Get the value of the object's title.
-          const title = obj.getAttribute('name');
-          // Call a function with the title.
-          handleButtonClick(title);
-        });
-
-        obj.addEventListener('mouseenter', function () {
-          cursor.setAttribute('color', "green");
-        });
-
-        obj.addEventListener('mouseleave', function () {
-          cursor.setAttribute('color', "#FF5733");
-        });
-      });
-
-      // Function to handle button clicks.
-      function handleButtonClick(title) {
-        // You can perform actions based on the title.
-        console.log(`Clicked on ${title}`);
-        // Example: Navigate to a specific location or perform an action.
-        // You can replace this with your own logic.
-      }
-    </script>
+    </a-scene>
   </body>
-</html>
+  </html>
+  
