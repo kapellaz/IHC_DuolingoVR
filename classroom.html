@@ -8,6 +8,7 @@
           let name_scenario='classroom'
           let a={
             'backpack':true,
+            'pencil': true,
           };
           let acoes = { // pressupomos acoes de 2 objetos apenas
           }
@@ -26,9 +27,11 @@
                 <a-asset-item id="backpack-o" src="assets/backpack.OBJ"></a-asset-item>
                 <a-asset-item id="backpack-o" src="assets/backpack.OBJ"></a-asset-item>
                 <a-asset-item id="backpack-m" src="assets/backpack.MTL"></a-asset-item>
+                <a-asset-item id="pencil-gltf" src="assets/scene.gltf"></a-asset-item>
             </a-assets> 
+                <a-entity value="pencil" id="pencil" gltf-model="#pencil-gltf" rotation="55 0 215" scale="" position="-1.32881 1.06062 0.03253" button=""></a-entity>
                 <a-entity value="cenario" obj-model="obj: #cenario-o; mtl: #cenario-m" position="0 0 0"></a-entity>
-                <a-entity id="backpack" value="backpack" obj-model="obj: #backpack-o; mtl: #backpack-m" scale="0.1 0.1 0.1" rotation="-90 0 0" position="0 1.097 -0.967"></a-entity>
+                <a-entity id="backpack" value="backpack" obj-model="obj: #backpack-o; mtl: #backpack-m" scale="0.1 0.1 0.1" rotation="-90 0 0" position="0 1.097 -0.967" button=""></a-entity>
             <a-camera>
               <a-cursor id="cursor" color="#FF5733"> </a-cursor>
               <a-box id="myBox" color="#FF5733" position="0.292 0.0 -0.5" width="0.50" height="1" depth="0.0000000000000000001" material="shader: flat" geometry="" visible="" scale="0.5 0.5 0.5">
