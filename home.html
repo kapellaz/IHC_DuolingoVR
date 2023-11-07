@@ -1,140 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<doctype html lang="en">
   <head>
-    <title>My VR Home</title>
-    <!-- Include A-Frame library -->
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <style>
-      body {
-        background: #0077EE;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 20px;
-      }
-      .container {
-        position: relative;
-      }
-      h1 {
-        color: #222222;
-      }
-      .image-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 200px;
-        margin: 0 auto;
-      }
-      .image-container img {
-        max-width: 100%;
-        max-height: 100%;
-        display: block;
-        margin: 0 auto;
-        border-radius: 50%;
-      }
-      .navigation-indicators {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
-      }
-      .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        margin: 0 5px;
-        background-color: #FF5733;
-        transition: width 0.3s, height 0.3s;
-      }
-      .dot.inactive {
-        background-color: #CCCCCC;
-      }
-      .nav-buttons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-      }
-      .nav-button {
-        background-color: #FF5733;
-        color: #000;
-        text-decoration: none;
-        border-radius: 5px;
-        font-weight: bold;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: background-color 0.3s;
-        cursor: pointer;
-        margin: 0 10px; /* Add margin for spacing */
-      }
-      .nav-button:hover {
-        background-color: #FF8F66;
-      }
-      .nav-button.disabled {
-        background-color: #CCCCCC;
-        cursor: not-allowed;
-      }
-    </style>
+      <!-- Include A-Frame library -->
+      <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+      <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+      <script src="https://unpkg.com/aframe-event-set-component/dist/aframe-event-set-component.min.js"></script>
+      <script src="home.js"></script>
   </head>
   <body>
-    <h1>Duolingo VR</h1>
-    <div class="container">
-      <div class="image-container" id="image-container">
-        <img src="assets/garage.jpg" alt="Garage Image" id="current-image" style="object-fit: cover; width: 200px; height: 200px;">
-      </div>
-      <div class="navigation-indicators">
-        <div class="dot"></div>
-        <div class="dot inactive"></div>
-      </div>
-      <div class="nav-buttons">
-        <a href="#" id="left-button" class="nav-button" onclick="showGarage()">Left</a>
-        <button class="start-button nav-button" id="start-button" onclick="navigate('garage.html')">Start</button>
-        <a href="#" id="right-button" class="nav-button" onclick="showCountryside()">Right</a>
-      </div>
-    </div>
-
-    <script>
-      let currentImage = 'assets/garage.jpg';
-      let currentIndex = 0;
-
-      function showGarage() {
-        currentImage = 'assets/garage.jpg';
-        document.getElementById('current-image').src = currentImage;
-        document.getElementById('start-button').onclick = function () {
-          navigate('garage.html');
-        };
-        currentIndex = 0;
-        updateNavigationIndicators(currentIndex);
-      }
-
-      function showCountryside() {
-        currentImage = 'assets/countryside.jpg';
-        document.getElementById('current-image').src = currentImage;
-        document.getElementById('start-button').onclick = function () {
-          navigate('countryside.html');
-        };
-        currentIndex = 1;
-        updateNavigationIndicators(currentIndex);
-      }
-
-      function navigate(destination) {
-        if (confirm('Are you sure you want to go to ' + destination + '?')) {
-          window.location.href = destination;
-        }
-      }
-
-      function updateNavigationIndicators(activeIndex) {
-        const dots = document.querySelectorAll('.dot');
-        dots.forEach((dot, index) => {
-          if (index === activeIndex) {
-            dot.classList.remove('inactive');
-          } else {
-            dot.classList.add('inactive');
-          }
-        });
-      }
-    </script>
+    <a-scene>  
+      <a-camera>
+        <a-cursor id="cursor" color="#FF5733"> </a-cursor>
+        <a-box id="myBox" color="#FF5733" position="-0.00756 0 -0.5" width="0.50" height="1" depth="0.0000000000000000001" material="shader: flat" geometry="depth: 0" visible="" scale="2 0.5 0.5">
+          <a-text id="text_list" position="0.26973 0.10672 0.05" color="#000000" width="0.5" height="0.5" anchor="center" font="kelsonsans" scale="2 2 2" list="" text=""></a-text>
+        </a-box>
+      </a-camera>
+      <a-box value="garage" position="0.95631 0.49009 -2.43418" rotation="0 -33.46360002461573 0" color="#FF1111" button="">
+        <a-text value="garage" position="0.00374 0.19068 0.50086" align="center" width="5" color="#000" ></a-text>
+      </a-box>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="200" height="200" color="#7BC8A4" material="" geometry=""></a-plane>
+    </a-scene>
   </body>
-</html>
-
+  </html>
+  
