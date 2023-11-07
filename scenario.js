@@ -8,10 +8,15 @@ let cursor;
 
 function textToSpeech(text){
   let utterance = new SpeechSynthesisUtterance();
-      
+  
   // Set the text and voice of the utterance
   utterance.text = text;
-  utterance.voice = window.speechSynthesis.getVoices()[1];
+
+  window.speechSynthesis.getVoices().forEach(element => {
+    if(element.lang==='en-US') {
+      utterance.voice=element;
+    }
+  });
 
   // Speak the utterance
   window.speechSynthesis.speak(utterance);
