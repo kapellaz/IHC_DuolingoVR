@@ -35,9 +35,9 @@ function updateList() {
   concatenatedString += "---------------\n";
   concatenatedString += "Tarefas:\n";
   for (let key in acoes) {
-    let percentage = (1 - (acoes[key].length / 2)) * 100;
+    let percentage = Math.round((1 - ((acoes[key].length-1) / acoes[key][0])) * 100);
     concatenatedString += percentage.toString() + "%: " + key + "\n";
-    for (let i = 0; i < acoes[key].length; i++) {
+    for (let i = 1; i < acoes[key].length; i++) {
       concatenatedString += ' -> ' + acoes[key][i] + '\n';
     }
   }
@@ -85,7 +85,7 @@ AFRAME.registerComponent('button', {
             textToSpeech(objeto);
             all_selected.push(objeto);
             in_action = true;
-            if (acoes[key].length === 0) {
+            if (acoes[key].length === 1) {
               textToSpeech(key + " completed!");
               count_done++;
               if (count_done === Object.keys(acoes).length) {
