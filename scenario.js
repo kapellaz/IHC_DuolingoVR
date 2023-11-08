@@ -73,7 +73,7 @@ AFRAME.registerComponent('button', {
     el.addEventListener('click', function () {
       let in_action = false;
       if (a[objeto] == true) { // objeto por encontrar
-        textToSpeech(objeto);
+       // textToSpeech(objeto);
         a[objeto] = false;
         all_selected.push(objeto);
         count_found++;
@@ -84,11 +84,11 @@ AFRAME.registerComponent('button', {
         for (let key in acoes) {
           if (acoes[key].includes(objeto)) {
             acoes[key] = acoes[key].filter(item => item != objeto);
-            textToSpeech(objeto);
+            //textToSpeech(objeto);
             all_selected.push(objeto);
             in_action = true;
             if (acoes[key].length === 1) {
-              textToSpeech(key + " completed!");
+              //textToSpeech(key + " completed!");
               count_done++;
               if (count_done === Object.keys(acoes).length) {
                 all_done = true;
@@ -131,7 +131,7 @@ function updateTimer() {
     else minute_string = minute;
     timerText.setAttribute('value', 'Complete! ' + `Time: ${minute_string}:${second_string}`);
     timerText.setAttribute('color', 'green');
-    textToSpeech(`Completed in ${minute} minutes and ${second} seconds! Congratulations!`)
+    //textToSpeech(`Completed in ${minute} minutes and ${second} seconds! Congratulations!`)
     clearTimeout(timerInterval); 
   }
 
