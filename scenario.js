@@ -175,10 +175,10 @@ function toggleVisibility() {
 
 
 // Add event listener for the 'L' key press
-document.addEventListener('keydown', function (event) {
-  if (event.key === 'l' || event.key === 'L') {
+document.addEventListener('abuttontouchstart', function (event) {
+ // if (event.key === 'l' || event.key === 'L') {
         toggleVisibility();
-  }
+  //}
 });
 
 let second = 0; // Initial time in seconds
