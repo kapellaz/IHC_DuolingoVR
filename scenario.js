@@ -41,6 +41,8 @@ function updateList() {
       concatenatedString += ' -> ' + acoes[key][i] + '\n';
     }
   }
+  concatenatedString += "---------------\n";
+  concatenatedString += "Clica \"A\" para\nocultar a lista\n";
   list_component.setAttribute('value', concatenatedString);
 }
 
