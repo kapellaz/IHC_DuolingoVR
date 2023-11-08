@@ -53,6 +53,18 @@ AFRAME.registerComponent('list', {
   }
 });
 
+AFRAME.registerComponent('oculus-clickable', {
+  init: function () {
+    var el = this.el;
+    
+    // Add a triggerdown event listener to the laser controller.
+    el.addEventListener('triggerdown', function () {
+      // Trigger a mouse click event on the element when the controller button is pressed.
+      el.emit('click', null, false);
+    });
+  }
+});
+
 AFRAME.registerComponent('button', {
   init: function () {
     var el = this.el;
