@@ -70,7 +70,7 @@ AFRAME.registerComponent('button', {
       cursor.setAttribute('color', "#FF5733");
     });
 
-    el.addEventListener('abuttondown', function () {
+    el.addEventListener('click', function () {
       let in_action = false;
       if (a[objeto] == true) { // objeto por encontrar
         textToSpeech(objeto);
