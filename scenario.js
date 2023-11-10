@@ -42,7 +42,8 @@ function updateList() {
     }
   }
   concatenatedString += "---------------\n";
-  concatenatedString += "Clica \"A\" para\nocultar a lista\n";
+  concatenatedString += "A - ocultar lista\n";
+  concatenatedString += "B - sair\n";
   list_component.setAttribute('value', concatenatedString);
 }
 
@@ -177,11 +178,19 @@ function toggleVisibility() {
 
 
 // Add event listener for the 'L' key press
-document.addEventListener('abuttontouchstart', function (event) {
+document.addEventListener('abuttondown', function (event) {
  // if (event.key === 'l' || event.key === 'L') {
         toggleVisibility();
   //}
 });
+
+document.addEventListener('bbuttondown', function (event) {
+  var userConfirmed = window.confirm('Queres mesmo sair?');
+
+  if (userConfirmed) {
+    window.location.href = './home.html';
+  }
+ });
 
 let second = 0; // Initial time in seconds
 let minute = 0;
