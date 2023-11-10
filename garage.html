@@ -25,7 +25,7 @@
     
     <!-- Create a virtual reality scene -->
     <a-scene keyboard-shortcuts>
-      <a-entity laser-controls="hand: right" oculus-touch-controls="hand:right" ></a-entity>
+      <!-- <a-entity laser-controls="hand: right" oculus-touch-controls="hand:right" ></a-entity> -->
 
           <a-assets>
             <a-asset-item id="cenario-o" src="assets/Garage.obj"></a-asset-item>
@@ -57,6 +57,7 @@
               <a-entity
                 id="right-hand"
                 oculus-touch-controls="hand: right"
+                laser-controls="hand: right"
                 blink-controls="collisionEntities: a-plane"
               >
             <a-camera>  
