@@ -156,22 +156,20 @@ function toggleVisibility() {
   text_list.setAttribute('animation__out', {'property': 'scale','to':0,'startEvents': 'outAnimation'});
   timer.setAttribute('animation__out', {'property': 'scale','to':0,'startEvents': 'outAnimation'});
 
-  myBox.setAttribute('animation__in', {'property': 'scale','from':'0 0 0','to':'0.5 0.5 0.5','startEvents': 'inAnimation'});
+  myBox.setAttribute('animation__in', {'property': 'scale','from':'0 0 0','to':'0.3 0.3 0.3','startEvents': 'inAnimation'});
   text_list.setAttribute('animation__in', {'property': 'scale','from':'0 0 0','to':'2 2 2','startEvents': 'inAnimation'});
   timer.setAttribute('animation__in', {'property': 'scale','from':'0 0 0','to':'0.2 0.3 0.5','startEvents': 'inAnimation'});
 
   if(visible==='1'){
-    // myBox.setAttribute('visible',false);
     myBox.emit('outAnimation',null, false)
     text_list.emit('outAnimation',null, false)
     timer.emit('outAnimation',null, false)
     myBox.setAttribute('value','0')
   }
-  else{
+  else if(visible==='0'){
     myBox.emit('inAnimation',null, false)
     text_list.emit('inAnimation',null, false)
     timer.emit('inAnimation',null, false)
-    //myBox.setAttribute('visible',true);
     myBox.setAttribute('value','1')
   }
 }
