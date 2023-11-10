@@ -153,8 +153,8 @@ function toggleVisibility() {
   var visible=myBox.getAttribute('value');
 
   myBox.setAttribute('animation__out', {'property': 'scale','to':'0 0 0','startEvents': 'outAnimation','dur': '500'});
-  text_list.setAttribute('animation__out', {'property': 'scale','to':0,'startEvents': 'outAnimation','dur': '500'});
-  timer.setAttribute('animation__out', {'property': 'scale','to':0,'startEvents': 'outAnimation','dur': '500'});
+  text_list.setAttribute('animation__out', {'property': 'scale','to':'0 0 0','startEvents': 'outAnimation','dur': '500'});
+  timer.setAttribute('animation__out', {'property': 'scale','to':'0 0 0','startEvents': 'outAnimation','dur': '500'});
 
   myBox.setAttribute('animation__in', {'property': 'scale','from':'0 0 0','to':'0.3 0.3 0.3','startEvents': 'inAnimation','dur': '500'});
   text_list.setAttribute('animation__in', {'property': 'scale','from':'0 0 0','to':'2 2 2','startEvents': 'inAnimation','dur': '500'});
