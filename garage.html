@@ -4,6 +4,8 @@
       <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
       <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
       <script src="https://unpkg.com/aframe-event-set-component/dist/aframe-event-set-component.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
+
       <script> 
         let name_scenario='garage'
         let a={
@@ -45,7 +47,14 @@
           <a-entity value="barrel" id="barrel" obj-model="obj: assets/Drum.obj" scale="0.3 0.3 0.3" rotation="0.32 -90 0" position="9.74346 0 -0.308" color="white" material="src: assets/RadioactiveBarrel.png" button=""></a-entity>
           <a-entity value="canister" id="canister" obj-model="obj: assets/FuelCanister.obj" scale="0.5 0.5 0.3" rotation="0.32 -90 0" position="-1.40059 0.3946 12.06952" color="white" material="src: assets/FuelCanister.png" button=""></a-entity>
         
-          
+          <!-- camera rig -->
+    <a-entity id="player">
+      <!-- camera -->
+      <a-entity id="camera" camera wasd-controls look-controls></a-entity>
+      <!-- hand controls -->
+      <a-entity id="left-hand" oculus-touch-controls="hand: left" blink-controls></a-entity>
+      <a-entity id="right-hand" oculus-touch-controls="hand: right"></a-entity>
+    </a-entity>
           
           <a-camera>
             <a-cursor id="cursor" visible="false" color="#FF5733"> </a-cursor>
