@@ -1,3 +1,4 @@
+
 let all_selected = []; // tudo o que foi selecionado
 let count_found = 0;   //       objetos encontrados
 let count_done = 0;    //       ações realizadas
@@ -7,19 +8,55 @@ let list_component;
 let cursor;
 
 function textToSpeech(text){
-  let utterance = new SpeechSynthesisUtterance();
-  
-  // Set the text and voice of the utterance
-  utterance.text = text;
+  var phraseDiv;
+  var resultDiv;
+  var startSpeakTextAsyncButton;
 
-  window.speechSynthesis.getVoices().forEach(element => {
-    if(element.lang==='en-US') {
-      utterance.voice=element;
+  // subscription key and region for speech services.
+  var subscriptionKey, serviceRegion;
+  var synthesizer;
+    subscriptionKey="26c097a0391048fa934b92d1110285a1";
+    serviceRegion="westeurope";
+    //resultDiv = document.getElementById("resultDiv");
+
+      if (subscriptionKey === "" || subscriptionKey === "subscription") {
+        alert("Please enter your Microsoft Cognitive Services Speech subscription key!");
+        return;
+      }
+      var speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey, serviceRegion);
+
+      synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig);
+
+      synthesizer.speakTextAsync(
+        text,
+        function (result) {
+          // if (result.reason === SpeechSDK.ResultReason.SynthesizingAudioCompleted) {
+          //   resultDiv.innerHTML += "synthesis finished for [" + inputText + "].\n";
+          // } else if (result.reason === SpeechSDK.ResultReason.Canceled) {
+          //   resultDiv.innerHTML += "synthesis failed. Error detail: " + result.errorDetails + "\n";
+          // }
+          window.console.log(result);
+          synthesizer.close();
+          synthesizer = undefined;
+        },
+        function (err) {
+          // resultDiv.innerHTML += "Error: ";
+          // resultDiv.innerHTML += err;
+          // resultDiv.innerHTML += "\n";
+          window.console.log(err);
+
+          synthesizer.close();
+          synthesizer = undefined;
+      });
+
+    if (!!window.SpeechSDK) {
+      SpeechSDK = window.SpeechSDK;
+
+      // in case we have a function for getting an authorization token, call it.
+      if (typeof RequestAuthorizationToken === "function") {
+          RequestAuthorizationToken();
+      }
     }
-  });
-
-  // Speak the utterance
-  window.speechSynthesis.speak(utterance);
 }
 
 function updateList() {
@@ -177,10 +214,11 @@ function toggleVisibility() {
 
 
 // Add event listener for the 'L' key press
-document.addEventListener('abuttondown', function (event) {
- // if (event.key === 'l' || event.key === 'L') {
+document.addEventListener('keydown', function (event) {
+ if (event.key === 'l' || event.key === 'L') {
         toggleVisibility();
-  //}
+        textToSpeech('b')
+  }
 });
 
 document.addEventListener('bbuttondown', function (event) {
