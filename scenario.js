@@ -61,16 +61,16 @@ AFRAME.registerComponent('list', {
 AFRAME.registerComponent('button', {
   init: function () {
     var el = this.el;
-    cursor = document.getElementById('cursor');
+    cursor = document.getElementById('right-hand');
     let objeto = el.getAttribute('value');
 
     el.addEventListener('mouseenter', function () {
-      if (!all_selected.includes(objeto)) cursor.setAttribute('color', "green");
-      else cursor.setAttribute('color', "cyan");
+      if (!all_selected.includes(objeto)) cursor.setAttribute('raycaster', "lineColor: green");
+      else cursor.setAttribute('raycaster', "lineColor: cyan");
     });
 
     el.addEventListener('mouseleave', function () {
-      cursor.setAttribute('color', "#FF5733");
+      cursor.setAttribute('raycaster', "lineColor: #FF5733");
     });
 
     el.addEventListener('click', function () {
