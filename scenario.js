@@ -176,36 +176,6 @@ function toggleVisibility() {
   }
 }
 
-AFRAME.registerComponent('showConfirmation', {
-  init: function () {
-    var confirmationUI = document.getElementById('confirmationUI');
-    this.el.addEventListener('click', function () {
-      confirmationUI.setAttribute('visible', true);
-    });
-  }
-});
-
-AFRAME.registerComponent('confirmAction', {
-  init: function () {
-    var confirmationUI = document.getElementById('confirmationUI');
-    this.el.addEventListener('click', function () {
-      console.log('Confirmed!');
-      // Add your redirection logic here
-      window.location.href = './home.html';
-      confirmationUI.setAttribute('visible', false);
-    });
-  }
-});
-
-AFRAME.registerComponent('cancelAction', {
-  init: function () {
-    var confirmationUI = document.getElementById('confirmationUI');
-    this.el.addEventListener('click', function () {
-      console.log('Canceled!');
-      confirmationUI.setAttribute('visible', false);
-    });
-  }
-});
 
 
 // Add event listener for the 'L' key press
