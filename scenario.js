@@ -8,9 +8,6 @@ let list_component;
 let cursor;
 
 function textToSpeech(text){
-  var phraseDiv;
-  var resultDiv;
-  var startSpeakTextAsyncButton;
 
   // subscription key and region for speech services.
   var subscriptionKey, serviceRegion;
@@ -30,19 +27,11 @@ function textToSpeech(text){
       synthesizer.speakTextAsync(
         text,
         function (result) {
-          // if (result.reason === SpeechSDK.ResultReason.SynthesizingAudioCompleted) {
-          //   resultDiv.innerHTML += "synthesis finished for [" + inputText + "].\n";
-          // } else if (result.reason === SpeechSDK.ResultReason.Canceled) {
-          //   resultDiv.innerHTML += "synthesis failed. Error detail: " + result.errorDetails + "\n";
-          // }
           window.console.log(result);
           synthesizer.close();
           synthesizer = undefined;
         },
         function (err) {
-          // resultDiv.innerHTML += "Error: ";
-          // resultDiv.innerHTML += err;
-          // resultDiv.innerHTML += "\n";
           window.console.log(err);
 
           synthesizer.close();
@@ -124,11 +113,11 @@ AFRAME.registerComponent('button', {
         for (let key in acoes) {
           if (acoes[key].includes(objeto)) {
             acoes[key] = acoes[key].filter(item => item != objeto);
-            //textToSpeech(objeto);
+            textToSpeech(objeto);
             all_selected.push(objeto);
             in_action = true;
             if (acoes[key].length === 1) {
-              //textToSpeech(key + " completed!");
+              textToSpeech(key + " completed!");
               count_done++;
               if (count_done === Object.keys(acoes).length) {
                 all_done = true;
@@ -171,7 +160,7 @@ function updateTimer() {
     else minute_string = minute;
     timerText.setAttribute('value', 'Complete! ' + `Time: ${minute_string}:${second_string}`);
     timerText.setAttribute('color', 'green');
-    //textToSpeech(`Completed in ${minute} minutes and ${second} seconds! Congratulations!`)
+    textToSpeech(`Completed in ${minute} minutes and ${second} seconds! Congratulations!`)
     clearTimeout(timerInterval); 
   }
 
@@ -214,11 +203,10 @@ function toggleVisibility() {
 
 
 // Add event listener for the 'L' key press
-document.addEventListener('keydown', function (event) {
- if (event.key === 'l' || event.key === 'L') {
+document.addEventListener('abuttondown', function (event) {
+//  if (event.key === 'l' || event.key === 'L') {
         toggleVisibility();
-        textToSpeech('b')
-  }
+  // }
 });
 
 document.addEventListener('bbuttondown', function (event) {
