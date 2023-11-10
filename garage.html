@@ -3,9 +3,8 @@
       <!-- Include A-Frame library -->
       <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
       <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
-      <script src="https://unpkg.com/aframe-extras/dist/aframe-extras.min.js"></script>
-      <script src="https://unpkg.com/aframe-teleport-controls/dist/aframe-teleport-controls.min.js"></script>
-
+      <script src="https://unpkg.com/aframe-event-set-component/dist/aframe-event-set-component.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
 
       <script> 
         let name_scenario='garage'
@@ -20,12 +19,20 @@
         }
       </script>
       <script src="scenario.js"></script>
+      <link rel="stylesheet" href="list.css">
   </head>
   <body>
     
     <!-- Create a virtual reality scene -->
     <a-scene keyboard-shortcuts>
       <a-entity laser-controls="hand: right"oculus-touch-controls="hand:right" ></a-entity>
+      <a-entity id="right-hand"
+        brush
+        paint-controls="hand: right"
+        ui
+        teleport-controls>
+      </a-entity>
+
           <a-assets>
             <a-asset-item id="cenario-o" src="assets/Garage.obj"></a-asset-item>
             <a-asset-item id="cenario-m" src="assets/Garage.mtl"></a-asset-item>
@@ -46,20 +53,13 @@
           <a-entity value="car" id="car" obj-model="obj: assets/Cadillac_CT4_V_2022.obj" scale="0.01 0.01 0.01" rotation="0.32 -90 0" position="5.5996 0.49509 8.96771" material="src: assets/textura.png" button=""></a-entity>
           <a-entity value="barrel" id="barrel" obj-model="obj: assets/Drum.obj" scale="0.3 0.3 0.3" rotation="0.32 -90 0" position="9.74346 0 -0.308" color="white" material="src: assets/RadioactiveBarrel.png" button=""></a-entity>
           <a-entity value="canister" id="canister" obj-model="obj: assets/FuelCanister.obj" scale="0.5 0.5 0.3" rotation="0.32 -90 0" position="-1.40059 0.3946 12.06952" color="white" material="src: assets/FuelCanister.png" button=""></a-entity>
-        
-          <!-- camera rig -->
-  
           
-          <a-camera id="camera" position="0 1.6 0">
-            <a-entity teleport-controls="cameraRig: #cameraRig; teleportOrigin: #camera; type: parabolic;"></a-entity>
-            <a-entity id="cameraRig">
-              <!-- Additional camera-related entities, such as cursor, can be placed here -->
-              <a-cursor id="cursor" visible="false" color="#FF5733"></a-cursor>
-              <a-box id="myBox" color="#FF5733" position="0.0 0 -0.5" width="0.50" height="1" depth="0.0000000000000000001" material="shader: flat" geometry="depth: 0" visible="" scale="0.3 0.3 0.3">
-                <a-text id="text_list" position="0.26973 0.07453 0.05" color="#000000" width="0.5" height="0.5" anchor="center" font="kelsonsans" scale="2 2 2" list="" text=""></a-text>
-                <a-text id="timer" position="-0.22181 -0.43423 0.006" color="#118" text="" scale="0.2 0.3 0.5" value="Time: 00:47"></a-text>
-              </a-box>
-            </a-entity>
+          <a-camera>
+            <a-cursor id="cursor" visible="false" color="#FF5733"> </a-cursor>
+            <a-box id="myBox" color="#FF5733" position="0.0 0 -0.5" width="0.50" height="1" depth="0.0000000000000000001" material="shader: flat" geometry="depth: 0" visible="" scale="0.3 0.3 0.3">
+              <a-text id="text_list" position="0.26973 0.07453 0.05" color="#000000" width="0.5" height="0.5" anchor="center" font="kelsonsans" scale="2 2 2" list="" text=""></a-text>
+              <a-text id="timer" position="-0.22181 -0.43423 0.006" color="#118" text="" scale="0.2 0.3 0.5" value="Time: 00:47"></a-text>
+            </a-box>
           </a-camera>
         </a-scene>
   </body>
