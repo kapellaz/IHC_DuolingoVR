@@ -50,19 +50,15 @@ function speakNext(){
           synthesizer = undefined;
           isSpeaking = false; // Set the flag to indicate that speaking is done
           //wait for the speaking to finish before processing the next text in the queue
-          
-
-
           speakNext(); // Process the next text in the queue
 
         },
         function (err) {
           window.console.log(err);
-          isSpeaking = false; // Set the flag to indicate that speaking is done
-          speakNext(); // Process the next text in the queue
-
+          isSpeaking = false; // Set the flag to indicate that speaking is done// Process the next text in the queue
           synthesizer.close();
           synthesizer = undefined;
+          speakNext(); 
       });
 
     if (!!window.SpeechSDK) {
