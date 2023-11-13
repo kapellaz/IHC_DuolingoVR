@@ -18,7 +18,7 @@ function textToSpeech(text) {
   }
 }
 
-function textToSpeech(text){
+function speakNext(){
 
   // subscription key and region for speech services.
   var subscriptionKey, serviceRegion;
