@@ -27,8 +27,7 @@ function speakNext(){
     subscriptionKey="26c097a0391048fa934b92d1110285a1";
     serviceRegion="westeurope";
     //resultDiv = document.getElementById("resultDiv");
-    if (speechQueue.length > 0) {
-      while (isSpeaking) { 
+    if (speechQueue.length > 0 && !isSpeaking) {
       isSpeaking = true;
       const text = speechQueue.shift(); // Get the next text from the queue
   
@@ -69,7 +68,6 @@ function speakNext(){
       }
     }
   }
-}
 }
 
 
