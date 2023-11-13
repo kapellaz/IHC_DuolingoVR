@@ -19,7 +19,34 @@ function textToSpeech(text) {
   }
 }
 
-function speakNext(){
+async function speakNext(){
+
+  // subscription key and region for speech services.
+  var subscriptionKey, serviceRegion;
+  var synthesizer;
+    subscriptionKey="26c097a0391048fa934b92d1110285a1";
+    serviceRegion="westeurope";
+    //resultDiv = document.getElementById("resultDiv");
+    if (speechQueue.length > 0 && !isSpeaking) {
+      console.log(speechQueue);
+      isSpeaking = true;
+      const text = speechQueue.shift(); // Get the next text from the queue
+
+  
+      if (subscriptionKey === "" || subscriptionKey === "subscription") {
+        alert("Please enter your Microsoft Cognitive Services Speech subscription key!");
+        isSpeaking = false; // Set the flag to indicate that speaking is done
+        return;
+      }
+      var speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey, serviceRegion);
+
+      synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig);
+
+      synthesizer.speakTextAsync(
+        text,
+        function (result) {
+          window.console.log(result);
+          function speakNext(){
 
   // subscription key and region for speech services.
   var subscriptionKey, serviceRegion;
@@ -47,8 +74,39 @@ function speakNext(){
         function (result) {
           window.console.log(result);
           synthesizer.close();
+          //wait fot the end of the speech
+          
           synthesizer = undefined;
           isSpeaking = false; // Set the flag to indicate that speaking is done
+          speakNext(); // Process the next text in the queue
+
+        },
+        function (err) {
+          window.console.log(err);
+          isSpeaking = false; // Set the flag to indicate that speaking is done
+          speakNext(); // Process the next text in the queue
+
+          synthesizer.close();
+          synthesizer = undefined;
+      });
+
+    if (!!window.SpeechSDK) {
+      SpeechSDK = window.SpeechSDK;
+
+      // in case we have a function for getting an authorization token, call it.
+      if (typeof RequestAuthorizationToken === "function") {
+          RequestAuthorizationToken();
+      }
+    }
+  }
+}
+
+          synthesizer.close();
+          synthesizer = undefined;
+          isSpeaking = false; // Set the flag to indicate that speaking is done
+          
+
+
           speakNext(); // Process the next text in the queue
 
         },
