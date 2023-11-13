@@ -8,7 +8,7 @@ let list_component;
 let cursor;
 let speechQueue = [];  // Queue to store texts to be spoken
 let isSpeaking = false; // Flag to track if the synthesizer is currently speaking
-
+let last_time = false;
 function textToSpeech(text) {
   speechQueue.push(text); // Add the text to the queue
 
@@ -170,7 +170,7 @@ async function updateTimer() {
   else second_string = second;
   if (minute < 10) minute_string = minute_string + minute.toString();
   else minute_string = minute;
-  timerText.setAttribute('value', `Time: ${minute_string}:${second_string}`);
+  if(!last_time){timerText.setAttribute('value', `Time: ${minute_string}:${second_string}`);}
   // second++;
   // if (second == 60) {
   //   second = 0;
@@ -179,6 +179,7 @@ async function updateTimer() {
 
   if (all_found && all_done) {
     all_found = false;
+    last_time = true;
     second_string = "0";
     minute_string = "0";
     if (second < 10) second_string = second_string + second.toString();
