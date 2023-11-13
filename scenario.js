@@ -42,7 +42,7 @@ async function speakNext(){
 
       synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig);
 
-      synthesizer.speakTextAsync(
+      await synthesizer.speakTextAsync(
         text,
         function (result) {
           window.console.log(result);
