@@ -6,6 +6,17 @@ let all_found = false; // todos objetos encontrados
 let all_done = false;  // todas ações realizadas
 let list_component;
 let cursor;
+let speechQueue = [];  // Queue to store texts to be spoken
+let isSpeaking = false; // Flag to track if the synthesizer is currently speaking
+
+function textToSpeech(text) {
+  speechQueue.push(text); // Add the text to the queue
+
+  // If not currently speaking, start speaking
+  if (!isSpeaking) {
+    speakNext(); // Start processing the queue
+  }
+}
 
 function textToSpeech(text){
 
@@ -15,7 +26,10 @@ function textToSpeech(text){
     subscriptionKey="26c097a0391048fa934b92d1110285a1";
     serviceRegion="westeurope";
     //resultDiv = document.getElementById("resultDiv");
-
+    if (speechQueue.length > 0) {
+      isSpeaking = true;
+      const text = speechQueue.shift(); // Get the next text from the queue
+  
       if (subscriptionKey === "" || subscriptionKey === "subscription") {
         alert("Please enter your Microsoft Cognitive Services Speech subscription key!");
         return;
@@ -30,9 +44,13 @@ function textToSpeech(text){
           window.console.log(result);
           synthesizer.close();
           synthesizer = undefined;
+          isSpeaking = false; // Set the flag to indicate that speaking is done
+          speakNext(); // Process the next text in the queue
         },
         function (err) {
           window.console.log(err);
+          isSpeaking = false; // Set the flag to indicate that speaking is done
+          speakNext(); // Process the next text in the queue
 
           synthesizer.close();
           synthesizer = undefined;
@@ -46,6 +64,7 @@ function textToSpeech(text){
           RequestAuthorizationToken();
       }
     }
+  }
 }
 
 function updateList() {
@@ -102,7 +121,7 @@ AFRAME.registerComponent('button', {
     el.addEventListener('click', function () {
       let in_action = false;
       if (a[objeto] == true) { // objeto por encontrar
-       // textToSpeech(objeto);
+        textToSpeech(objeto);
         a[objeto] = false;
         all_selected.push(objeto);
         count_found++;
