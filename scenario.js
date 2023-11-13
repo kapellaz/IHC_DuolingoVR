@@ -14,6 +14,7 @@ function textToSpeech(text) {
 
   // If not currently speaking, start speaking
   if (!isSpeaking) {
+
     speakNext(); // Start processing the queue
   }
 }
@@ -27,6 +28,7 @@ function speakNext(){
     serviceRegion="westeurope";
     //resultDiv = document.getElementById("resultDiv");
     if (speechQueue.length > 0) {
+      while (isSpeaking) { 
       isSpeaking = true;
       const text = speechQueue.shift(); // Get the next text from the queue
   
@@ -46,6 +48,7 @@ function speakNext(){
           synthesizer = undefined;
           isSpeaking = false; // Set the flag to indicate that speaking is done
           speakNext(); // Process the next text in the queue
+
         },
         function (err) {
           window.console.log(err);
@@ -66,6 +69,8 @@ function speakNext(){
     }
   }
 }
+}
+
 
 function updateList() {
   let concatenatedString = "Objetos:" + "\n";
