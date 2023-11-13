@@ -34,6 +34,7 @@ function speakNext(){
   
       if (subscriptionKey === "" || subscriptionKey === "subscription") {
         alert("Please enter your Microsoft Cognitive Services Speech subscription key!");
+        isSpeaking = false; // Set the flag to indicate that speaking is done
         return;
       }
       var speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey, serviceRegion);
