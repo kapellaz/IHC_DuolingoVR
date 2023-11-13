@@ -28,8 +28,10 @@ function speakNext(){
     serviceRegion="westeurope";
     //resultDiv = document.getElementById("resultDiv");
     if (speechQueue.length > 0 && !isSpeaking) {
+      console.log(speechQueue);
       isSpeaking = true;
       const text = speechQueue.shift(); // Get the next text from the queue
+
   
       if (subscriptionKey === "" || subscriptionKey === "subscription") {
         alert("Please enter your Microsoft Cognitive Services Speech subscription key!");
