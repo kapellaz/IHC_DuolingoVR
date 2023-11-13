@@ -13,9 +13,7 @@ AFRAME.registerComponent('button', {
   
       el.addEventListener('click', function () {
         let chosen = el.getAttribute("value");
-        if (chosen == "how to play?") {
-          
-        } else {
+        if (chosen != "how to play?") { 
           window.location.href = `./${chosen}.html`;
         }
       });
@@ -27,19 +25,14 @@ AFRAME.registerComponent('button', {
         var el = this.el;
         var cursor = document.getElementById('cursor');
         var target = document.getElementById('myBox');
-  
         el.addEventListener('mouseenter', function () {
             cursor.setAttribute('color', "green");
+            target.setAttribute("visible", true);
         });
   
         el.addEventListener('mouseleave', function () {
             cursor.setAttribute('color', "#FF5733");
-        });
-        
-        el.addEventListener("click", function () {
-            target.getAttribute("visible")
-              ? target.setAttribute("visible", false)
-              : target.setAttribute("visible", true);
+            target.setAttribute("visible", false)
         });
     }
   });
