@@ -46,10 +46,10 @@ function speakNext(){
         text,
         function (result) {
           window.console.log(result);
-          while(!synthesizer.SynthesisCompleted());
           synthesizer.close();
           synthesizer = undefined;
           isSpeaking = false; // Set the flag to indicate that speaking is done
+          //wait for the speaking to finish before processing the next text in the queue
           
 
 
@@ -128,7 +128,7 @@ AFRAME.registerComponent('button', {
       cursor.setAttribute('raycaster', "lineColor: #FF5733");
     });
 
-    el.addEventListener('click', function () {
+    el.addEventListener('click', async function () {
       let in_action = false;
       if (a[objeto] == true) { // objeto por encontrar
         textToSpeech(objeto);
@@ -146,6 +146,7 @@ AFRAME.registerComponent('button', {
             all_selected.push(objeto);
             in_action = true;
             if (acoes[key].length === 1) {
+              await new Promise(r => setTimeout(r, 1000));
               textToSpeech(key + " completed!");
               count_done++;
               if (count_done === Object.keys(acoes).length) {
@@ -165,7 +166,7 @@ AFRAME.registerComponent('button', {
 
 
 
-function updateTimer() {
+async function updateTimer() {
   const timerText = document.getElementById('timer');
   let second_string = "0";
   let minute_string = "0";
@@ -189,6 +190,7 @@ function updateTimer() {
     else minute_string = minute;
     timerText.setAttribute('value', 'Complete! ' + `Time: ${minute_string}:${second_string}`);
     timerText.setAttribute('color', 'green');
+    await new Promise(r => setTimeout(r, 1000));
     textToSpeech(`Completed in ${minute} minutes and ${second} seconds! Congratulations!`)
     clearTimeout(timerInterval); 
   }
