@@ -178,6 +178,7 @@ async function updateTimer() {
   // }
 
   if (all_found && all_done) {
+    all_found = false;
     second_string = "0";
     minute_string = "0";
     if (second < 10) second_string = second_string + second.toString();
