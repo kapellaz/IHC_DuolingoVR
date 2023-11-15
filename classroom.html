@@ -14,6 +14,8 @@
             'backpack':true,
             'pencil': true,
             'laptop': true,
+            'book': true,
+            'projetor': true,
           };
           let acoes = { // pressupomos acoes de 2 objetos apenas
             'Trash out':[2,'trash','trashcan'],
@@ -43,17 +45,20 @@
                 <a-asset-item id="vr-m" src="assets/vr.mtl"></a-asset-item>
                 <a-asset-item id="vr-o" src="assets/vr.obj"></a-asset-item>
                 <a-asset-item id="pc-m" src="assets/pc_case.mtl"></a-asset-item>
-                <a-asset-item id="pc-o" src="assets/pc_case.obj"></a-asset-item>
-               
+                <a-asset-item id="pc-o" src="assets/pc_case.obj"></a-asset-item> 
+                <a-asset-item id="book-m" src="assets/BookSartre.mtl"></a-asset-item>
+                <a-asset-item id="book-o" src="assets/BookSartre.obj"></a-asset-item>
               </a-assets>
+                <a-entity value="projetor" id="projetor" position="-1.168 2.920 0.003" rotation="0 0 13" scale="0.290 0.200 0.400"><a-box color="#4CC3D9"></a-box></a-entity>
+                <a-entity value="book" id="book" obj-model="obj: #book-o;mtl:#book-m" scale="0.2 0.2 0.2" rotation="0 270 0" position="2.853 0.001 2.503" button=""></a-entity> 
                 <a-entity value="Desktop" id="Desktop" obj-model="obj: #pc-o;mtl:#pc-m" scale="0.002 0.002 0.002" rotation="0 270 0" position="-2.44 1.059 2.744" button=""></a-entity> 
                 <a-entity value="vr" id="vr" obj-model="obj: #vr-o;mtl:#vr-m" scale="0.00015 0.00015 0.00015" rotation="0 45 0" position="-1.96 1.128 2.306" button=""></a-entity>
                 <a-entity value="trash" id="trash" obj-model="obj: #trash-o;" scale="0.005 0.005 0.005" position="1.225 1.07212 -3.202" button=""></a-entity>
                 <a-entity value="trashcan" id="trashcan" obj-model="obj: #trashcan-o; mtl: #trashcan-m" rotation="0 90 0" position="3.200 0.500 5.500" scale="0.010 0.010 0.010" button=""></a-entity>
                 <a-entity value="laptop" id="laptop" obj-model="obj: #laptop-o; mtl: #laptop-m" rotation="0 90 0" position="0 1.066 0.471" scale="0.003 0.003 0.003" button=""></a-entity>
-                <a-entity value="pencil" id="pencil" gltf-model="#pencil-gltf" rotation="55 0 215" scale="" position="-1.32881 1.06062 0.03253" button=""></a-entity>
+                <a-entity value="pencil" id="pencil" gltf-model="#pencil-gltf" rotation="55 0 215" scale="2 2 2" position="-1.32881 1.06062 0.03253" button=""></a-entity>
                 <a-entity value="cenario" obj-model="obj: #cenario-o; mtl: #cenario-m" position="0 0 0"></a-entity>
-                <a-entity id="backpack" value="backpack" obj-model="obj: #backpack-o; mtl: #backpack-m" scale="0.1 0.1 0.1" rotation="-90 0 0" position="0 1.097 -0.967" button=""></a-entity>
+                <a-entity id="backpack" value="backpack" obj-model="obj: #backpack-o; mtl: #backpack-m" scale="0.2 0.2 0.2" rotation="0 180 0" position="2.874 1.009 -1.064" button=""></a-entity>
                 <a-plane position="0.8042 0 -0.10388" rotation="-90 0 0" width="200" height="200" color="#7BC8A4" material="" geometry="" scale="0.05 0.04 1"></a-plane>
                 
                 <a-entity id="player">
