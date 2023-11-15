@@ -1,0 +1,315 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 206,
+      "max": [
+        1.0547221899032593,
+        0.4461873769760132,
+        0.1909448802471161
+      ],
+      "min": [
+        -1.0547223091125488,
+        -0.4461873769760132,
+        -0.1909448802471161
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 2472,
+      "componentType": 5126,
+      "count": 206,
+      "max": [
+        0.9721934795379639,
+        0.9876472353935242,
+        0.9772337079048157
+      ],
+      "min": [
+        -0.9720361828804016,
+        -0.9876471757888794,
+        -0.9770994782447815
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 206,
+      "max": [
+        0.8796980381011963,
+        0.5936701893806458,
+        0.9981868267059326,
+        1.0
+      ],
+      "min": [
+        -0.9951287508010864,
+        -0.5936694145202637,
+        -0.9977119565010071,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 206,
+      "max": [
+        0.9899218082427979,
+        0.9914267659187317
+      ],
+      "min": [
+        0.010188383050262928,
+        0.11860363185405731
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 1648,
+      "componentType": 5126,
+      "count": 206,
+      "max": [
+        0.9899218082427979,
+        0.9914267659187317
+      ],
+      "min": [
+        0.010188383050262928,
+        0.11860363185405731
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 3296,
+      "componentType": 5126,
+      "count": 206,
+      "max": [
+        0.9899218082427979,
+        0.9914267659187317
+      ],
+      "min": [
+        0.010188383050262928,
+        0.11860363185405731
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 900,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "plaggy (https://sketchfab.com/plaggy)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/cc0-pink-eraser-99c1b1aa42554fc4ae9b5e7e0635b7b5",
+      "title": "CC0 - Pink Eraser"
+    },
+    "generator": "Sketchfab-15.41.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 3600,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 4944,
+      "byteOffset": 3600,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 4944,
+      "byteOffset": 8544,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 3296,
+      "byteOffset": 13488,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 16784,
+      "uri": "eraser.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures_eraser/PinkEraser_baseColor.png"
+    },
+    {
+      "uri": "textures_eraser/PinkEraser_metallicRoughness.png"
+    },
+    {
+      "uri": "textures_eraser/PinkEraser_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "name": "PinkEraser",
+      "normalTexture": {
+        "index": 2
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "PinkEraser_PinkEraser_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "TEXCOORD_1": 4,
+            "TEXCOORD_2": 5
+          },
+          "indices": 6,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.02539999969303608,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.02539999969303608,
+        0.0,
+        0.0,
+        -0.02539999969303608,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "55d2465a009e4caf97033b5dbaa2223d.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        -0.9283244963997224,
+        -0.026938726290617915,
+        0.37079365475967996,
+        0.0,
+        0.34173783620151077,
+        -0.45455114524745377,
+        0.8225560817734784,
+        0.0,
+        0.14638606727592265,
+        0.8903131816277164,
+        0.4311769450323403,
+        0.0,
+        -1.800060272216797e-05,
+        0.0,
+        -1.410237260301983e-08,
+        1.0
+      ],
+      "name": "PinkEraser"
+    },
+    {
+      "mesh": 0,
+      "name": "PinkEraser_PinkEraser_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}
