@@ -229,6 +229,12 @@ function toggleVisibility() {
   }
 }
 
+// Add event listener for the 'L' key press
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'l' || event.key === 'L') {
+        toggleVisibility();
+  }
+});
 
 
 // Add event listener for the 'L' key press
