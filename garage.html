@@ -19,6 +19,8 @@
           'workbench':true,
           'motorcycle':true,
           'battery':true,
+          'pickup':true,
+          'air filter':true,
         };
         let acoes = { // pressupomos acoes de 2 objetos apenas
           'change oil':[2,'canister','car'], //removido da lista quando encontrado até
@@ -51,6 +53,8 @@
           <a-entity value="wheel" id="wheel" obj-model="obj: assets/e05.obj; mtl: assets/e05.mtl" button="" scale="0.008 0.008 0.008" color="white" rotation="" position="-14.69965 0.30376 -0.58311"></a-entity>
           <a-entity value="cenario" obj-model="obj: #cenario-o; mtl: #cenario-m" scale = "0.1 0.1 0.1"position="0 -1 0"></a-entity>
           <a-entity value="car" id="car" obj-model="obj: assets/Cadillac_CT4_V_2022.obj" scale="0.01 0.01 0.01" rotation="0.32 -90 0" position="5.5996 0.49509 8.96771" material="src: assets/textura.png" button=""></a-entity>
+          <a-entity value="pickup" id="pickup" obj-model="obj: assets/L200-OBJ.obj" scale="0.06 0.06 0.06" rotation="0.32 50 0" position="-11.780 0.085 -2.430" material="src: assets/truck_color.jpg; blending: none; color: #808080; emissive: #000000" button=""></a-entity>
+          <a-entity value="air filter" id="air filter" obj-model="obj: assets/air_filter.obj" material="src: assets/i4_airfilter_a.png" scale="0.015 0.015 0.015" rotation="0.32 50 0" position="-7.880 0.904 8.396" button=""></a-entity> 
           <a-entity value="barrel" id="barrel" obj-model="obj: assets/Drum.obj" scale="0.3 0.3 0.3" rotation="0.32 -90 0" position="9.74346 0 -0.308" color="white" material="src: assets/RadioactiveBarrel.png" button=""></a-entity>
           <a-entity value="canister" id="canister" obj-model="obj: assets/FuelCanister.obj" scale="0.5 0.5 0.3" rotation="0.32 -90 0" position="-1.40059 0.3946 12.06952" color="white" material="src: assets/FuelCanister.png" button=""></a-entity>
           <a-plane position="-1.92801 0 1.54079" rotation="-90 0 0" width="200" height="200" color="black" material="" geometry="" scale="0.14 0.11 1"></a-plane>
