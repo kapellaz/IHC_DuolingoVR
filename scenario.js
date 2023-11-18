@@ -126,6 +126,7 @@ AFRAME.registerComponent('button', {
 
     el.addEventListener('click', async function () {
       let in_action = false;
+      notifyObject(objeto);
       textToSpeech(objeto);
       if (a[objeto] == true) { // objeto por encontrar
         a[objeto] = false;
@@ -228,6 +229,28 @@ function toggleVisibility() {
     myBox.setAttribute('value','1')
   }
 }
+
+function notifyObject(text){
+  var notify = document.getElementById('notify');
+  var text_notify = document.getElementById('text_notify');
+
+  text_notify.setAttribute('value',text);
+
+  notify.setAttribute('animation__out', {'property': 'position','to':'-2 0.35 -0.5','startEvents': 'outAnimation','dur': '500'});
+  text_notify.setAttribute('animation__out', {'property': 'position','to':'-2 -0.035 0.05','startEvents': 'outAnimation','dur': '500'});
+
+  notify.setAttribute('animation__in', {'property': 'position','from':'-2 0.35 -0.5','to':'-0.73 0.35 -0.5','startEvents': 'inAnimation','dur': '500'});
+  text_notify.setAttribute('animation__in', {'property': 'position','from':'-2 -0.035 0.05','to':'-0.01 -0.035 0.05','startEvents': 'inAnimation','dur': '500'});
+
+  notify.emit('inAnimation',null,false);
+  text_notify.emit('inAnimation',null,false);
+
+  setTimeout(()=>{
+    notify.emit('outAnimation',null,false);
+    text_notify.emit('outAnimation',null,false);
+  },5000)
+}
+
 
 // Add event listener for the 'L' key press
 document.addEventListener('keydown', function (event) {
