@@ -9,4 +9,3 @@ deploy:
       - cd $SSH_PATH && git pull
    after_script:
       - echo "Done"
-      - rm -rf ~/.ssh
