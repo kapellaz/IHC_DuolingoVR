@@ -3,16 +3,10 @@ stages:
 deploy:
    image: ubuntu:latest
    stage: deploy
-   before_script:
-      - apt-get -yqq update
-      - apt-get -yqq install ssh
-      - install -m 600 -D /dev/null ~/.ssh/id_rsa
-      - echo "$SSH_PRIVATE_KEY" | base64 -d > ~/.ssh/id_rsa
-      - ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts
-      - echo "Deploying to $SSH_HOST"
+
    script:
       - echo "Deploying to production server"
-      - ssh $SSH_USER@$SSH_HOST "cd $SSH_PATH && git pull"
+      - cd $SSH_PATH && git pull
    after_script:
       - echo "Done"
       - rm -rf ~/.ssh
