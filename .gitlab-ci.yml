@@ -11,5 +11,7 @@ deploy:
       - cd /var/www/html/duolingo/public_html/ihc_duolingovr/
       - pwd
       - git pull
+      - systemctl restart apache2
+      - systemctl reload apache2
    after_script:
       - echo "Done"
