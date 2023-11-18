@@ -9,7 +9,7 @@ deploy:
       - cd $home
       - cd ..
       - pwd
-      - cd /var/www/html/duolingo/public_html/ihc_duolingovr/
+      - cd $WORK_DIR
       - pwd
       - git pull
    after_script:
