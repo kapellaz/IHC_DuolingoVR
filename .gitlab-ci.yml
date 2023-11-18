@@ -8,6 +8,8 @@ deploy:
       - cd $home
       - cd ..
       - pwd
-      - cd $WORK_DIR && git pull
+      - cd $WORK_DIR
+      - pwd
+      - git pull
    after_script:
       - echo "Done"
