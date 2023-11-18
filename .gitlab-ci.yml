@@ -5,6 +5,7 @@ deploy:
 
    script:
       - echo "Deploying to production server"
+      - cd #
       - pwd
       - cd $WORK_DIR && git pull
    after_script:
