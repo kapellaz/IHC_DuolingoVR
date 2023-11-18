@@ -4,6 +4,8 @@ deploy:
    stage: deploy
 
    script:
+      - whoami
+      - git config --global --add safe.directory /var/www/html/duolingo/public_html/ihc_duolingovr
       - echo "Deploying to production server"
       - cd $home
       - cd ..
