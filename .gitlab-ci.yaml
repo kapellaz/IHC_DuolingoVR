@@ -1,0 +1,7 @@
+stages:
+   - deploy
+deploy:
+   stage: deploy
+   script:
+      - echo "Deploying to production server"
+      - ssh $SSH_USER@$SSH_HOST "cd $SSH_PATH && git pull"
