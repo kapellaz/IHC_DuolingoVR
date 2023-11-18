@@ -14,7 +14,6 @@ function textToSpeech(text) {
 
   // If not currently speaking, start speaking
   if (!isSpeaking) {
-
     speakNext(); // Start processing the queue
   }
 }
@@ -76,12 +75,14 @@ function speakNext(){
 function updateList() {
   let concatenatedString = "Objetos:" + "\n";
   for (const key in a) {
-    if (a[key]) {
-      concatenatedString += "o - "; 
-    } else {
-      concatenatedString += "x - ";
+    if(a[key]!=5){
+      if (a[key]) {
+        concatenatedString += "o - "; 
+      } else {
+        concatenatedString += "x - ";
+      }
+      concatenatedString += key + "\n";
     }
-    concatenatedString += key + "\n";
   }
   concatenatedString += "---------------\n";
   concatenatedString += "Tarefas:\n";
@@ -108,7 +109,6 @@ AFRAME.registerComponent('list', {
 });
 
 
-
 AFRAME.registerComponent('button', {
   init: function () {
     var el = this.el;
@@ -126,8 +126,8 @@ AFRAME.registerComponent('button', {
 
     el.addEventListener('click', async function () {
       let in_action = false;
+      textToSpeech(objeto);
       if (a[objeto] == true) { // objeto por encontrar
-        textToSpeech(objeto);
         a[objeto] = false;
         all_selected.push(objeto);
         count_found++;
@@ -138,7 +138,7 @@ AFRAME.registerComponent('button', {
         for (let key in acoes) {
           if (acoes[key].includes(objeto)) {
             acoes[key] = acoes[key].filter(item => item != objeto);
-            textToSpeech(objeto);
+            //textToSpeech(objeto);
             all_selected.push(objeto);
             in_action = true;
             if (acoes[key].length === 1) {
