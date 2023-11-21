@@ -2,13 +2,16 @@ AFRAME.registerComponent('button', {
     init: function () {
       var el = this.el;
       var cursor = document.getElementById('cursor');
+      var guide = document.getElementById('Guide');
   
       el.addEventListener('mouseenter', function () {
         cursor.setAttribute('color', "green");
+        guide.setAttribute('visible', 'true');
       });
   
       el.addEventListener('mouseleave', function () {
         cursor.setAttribute('color', "#FF5733");
+        guide.setAttribute('visible', 'false');
       });
   
       el.addEventListener('click', function () {

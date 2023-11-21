@@ -17,16 +17,19 @@
         </a-box>
       </a-camera>
       <a-box value="garage" position="1.66161 0.49 -3.77246" rotation="0 -26.90151439698241 0" color="#FF1111" button="" material="" geometry="">
-        <a-text value="garage" position="0.00374 0.19068 0.50086" align="center" width="4" color="#000" text=""></a-text>
+        <a-text if="garage" value="garage" position="0.00374 0.19068 0.50086" align="center" width="4" color="#000" text=""></a-text>
       </a-box>
       <a-box value="classroom" position="-0.1 0.49 -3.51628" rotation="0 19.39863206974428 0" color="#11EE00" button="" material="" geometry="">
-        <a-text value="classroom" position="0.00374 0.19068 0.50086" align="center" width="4" color="#000" text=""></a-text>
+        <a-text id="classroom" value="classroom" position="0.00374 0.19068 0.50086" align="center" width="4" color="#000" text="classroom"></a-text>
       </a-box>
       <a-box value="how to play?" position="-3.98613 0.49009 -2.43418" rotation="0 29.953660571644306 0" color="#FFFFFF" material="" geometry="" button2="">
         <a-text value="how\nto\nplay?" position="0.00374 0.09068 0.50086" align="center" width="5" color="#000" text=""></a-text>
       </a-box>  
       <a-box value="dvr" scale="10 10 10" position="-5.60618 6.767 -22.53256" rotation="0 29.954000000000004 0" color="#F00FFF" width="1.70" height="0.3" material="" geometry="width: 2.5">
         <a-text value="Welcome to DuolingoVR" position="0.00374 0.01834 0.50086" align="center" width="5" color="#000" text=""></a-text>
+      </a-box>
+      <a-box id="Guide" color="#FF5733" position="0.69482 1.613 -3.715" width="0.70" height="0.3" depth="0.0000000000000000001" material="shader: flat" geometry="depth: 0" visible="false" scale="4 2 0.1">
+        <a-text value="Pressiona o Trigger para entrar!" position="0.16627 0.00608 0.00055" color="#000000" width="0.5" height="0.5" anchor="center" font="kelsonsans" scale="2 7 2" text=""></a-text>
       </a-box>
       <a-plane position="0 0 -4" rotation="-90 0 0" width="200" height="200" color="#7BC8A4" material="" geometry=""></a-plane>
     </a-scene>
