@@ -182,8 +182,6 @@ AFRAME.registerComponent('button', {
 });
 
 
-
-
 async function updateTimer() {
   const timerText = document.getElementById('timer');
   let second_string = "0";
@@ -218,7 +216,7 @@ async function updateTimer() {
     timerText.setAttribute('value', 'Complete! ' + `Time: ${minute_string}:${second_string}`);
     timerText.setAttribute('color', 'green');
     await new Promise(r => setTimeout(r, 1000));
-    textToSpeech(`Completed in ${minute_string} minutes and ${second_string} seconds! Congratulations!`)
+    textToSpeech(`Completed in ${minute} minutes and ${second_string} seconds! Congratulations!`)
     clearTimeout(timerInterval); 
   }
   second++;
