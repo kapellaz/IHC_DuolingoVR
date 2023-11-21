@@ -9,6 +9,8 @@ let cursor;
 let speechQueue = [];  // Queue to store texts to be spoken
 let isSpeaking = false; // Flag to track if the synthesizer is currently speaking
 let last_time = false;
+
+
 function textToSpeech(text) {
   speechQueue.push(text); // Add the text to the queue
 
@@ -17,6 +19,20 @@ function textToSpeech(text) {
     speakNext(); // Start processing the queue
   }
 }
+
+
+function toggleSound() {
+  var soundElement = document.querySelector('#somRadio');
+  console.log("trying to change the sound");
+  if (soundElement.getAttribute('value') == "inativo") {
+    soundElement.components.sound.playSound();
+    soundElement.setAttribute('value', 'ativo');
+  } else {
+    soundElement.components.sound.pauseSound();
+    soundElement.setAttribute('value', 'inativo');
+  }
+}
+
 
 function speakNext(){
 
@@ -128,6 +144,11 @@ AFRAME.registerComponent('button', {
       let in_action = false;
       notifyObject(objeto);
       textToSpeech(objeto);
+      if (objeto == "radio") {
+        toggleSound();
+        var els = document.getElementById('dica');
+        els.setAttribute("visible", "false");
+      }
       if (a[objeto] == true) { // objeto por encontrar
         a[objeto] = false;
         all_selected.push(objeto);
@@ -185,7 +206,7 @@ async function updateTimer() {
       audio.preload = "auto";
       audio.volume = 0.3;
       audio.play();
-  }  
+    }  
     all_found = false;
     last_time = true;
     second_string = "0";
@@ -200,7 +221,6 @@ async function updateTimer() {
     textToSpeech(`Completed in ${minute_string} minutes and ${second_string} seconds! Congratulations!`)
     clearTimeout(timerInterval); 
   }
-
   second++;
   if (second == 60) {
     second = 0;
@@ -265,6 +285,7 @@ document.addEventListener('keydown', function (event) {
         toggleVisibility();
   }
 });
+
 
 
 // Add event listener for the 'L' key press
