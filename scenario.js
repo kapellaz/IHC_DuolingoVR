@@ -179,6 +179,13 @@ async function updateTimer() {
   // }
 
   if (all_found && all_done) {
+    if (name_scenario === "classroom") {
+      var audio = new Audio();
+      audio.src = "assets/ac-bel-105874.mp3";
+      audio.preload = "auto";
+      audio.volume = 0.3;
+      audio.play();
+  }  
     all_found = false;
     last_time = true;
     second_string = "0";
