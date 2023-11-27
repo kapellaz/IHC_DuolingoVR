@@ -233,13 +233,14 @@ function toggleVisibility() {
   var timer = document.getElementById('timer');
   var visible=myBox.getAttribute('value');
 
-  myBox.setAttribute('animation__out', {'property': 'scale','to':'0 0 0','startEvents': 'outAnimation','dur': '500'});
-  text_list.setAttribute('animation__out', {'property': 'scale','to':'0 0 0','startEvents': 'outAnimation','dur': '500'});
-  timer.setAttribute('animation__out', {'property': 'scale','to':'0 0 0','startEvents': 'outAnimation','dur': '500'});
+    myBox.setAttribute('animation__out', {'property': 'scale','to':'0 0 0','startEvents': 'outAnimation','dur': '500'});
+    text_list.setAttribute('animation__out', {'property': 'scale','to':'0 0 0','startEvents': 'outAnimation','dur': '500'});
+    timer.setAttribute('animation__out', {'property': 'scale','to':'0 0 0','startEvents': 'outAnimation','dur': '500'});
+  
+    myBox.setAttribute('animation__in', {'property': 'scale','from':'0 0 0','to':'0.3 0.3 0.3','startEvents': 'inAnimation','dur': '500'});
+    text_list.setAttribute('animation__in', {'property': 'scale','from':'0 0 0','to':'2 2 2','startEvents': 'inAnimation','dur': '500'});
+    timer.setAttribute('animation__in', {'property': 'scale','from':'0 0 0','to':'0.2 0.3 0.5','startEvents': 'inAnimation','dur': '500'});
 
-  myBox.setAttribute('animation__in', {'property': 'scale','from':'0 0 0','to':'0.3 0.3 0.3','startEvents': 'inAnimation','dur': '500'});
-  text_list.setAttribute('animation__in', {'property': 'scale','from':'0 0 0','to':'2 2 2','startEvents': 'inAnimation','dur': '500'});
-  timer.setAttribute('animation__in', {'property': 'scale','from':'0 0 0','to':'0.2 0.3 0.5','startEvents': 'inAnimation','dur': '500'});
 
   if(visible==='1'){
     myBox.emit('outAnimation',null, false)
@@ -261,11 +262,24 @@ function notifyObject(text){
 
   text_notify.setAttribute('value',text);
 
-  notify.setAttribute('animation__out', {'property': 'position','to':'-1.0 0.20 -0.5','startEvents': 'outAnimation','dur': '500'});
-  text_notify.setAttribute('animation__out', {'property': 'position','to':'-1 -0.02 0.05','startEvents': 'outAnimation','dur': '500'});
+  if(name_scenario==='garage'){
 
-  notify.setAttribute('animation__in', {'property': 'position','from':'-2 0.35 -0.5','to':'0.0 0.20 -0.5','startEvents': 'inAnimation','dur': '500'});
-  text_notify.setAttribute('animation__in', {'property': 'position','from':'-1 -0.02 0.05','to':'-0.08 -0.02 0.05','startEvents': 'inAnimation','dur': '500'});
+    notify.setAttribute('animation__out', {'property': 'position','to':'-1.0 0.20 -0.5','startEvents': 'outAnimation','dur': '500'});
+    text_notify.setAttribute('animation__out', {'property': 'position','to':'-1 -0.02 0.05','startEvents': 'outAnimation','dur': '500'});
+  
+    notify.setAttribute('animation__in', {'property': 'position','from':'-2 0.35 -0.5','to':'0.0 0.20 -0.5','startEvents': 'inAnimation','dur': '500'});
+    text_notify.setAttribute('animation__in', {'property': 'position','from':'-1 -0.02 0.05','to':'-0.08 -0.02 0.05','startEvents': 'inAnimation','dur': '500'});
+  }
+
+  else if(name_scenario==='classroom'){
+
+    notify.setAttribute('animation__out', {'property': 'position','to':'-1 0.25 -0.5','startEvents': 'outAnimation','dur': '500'});
+    text_notify.setAttribute('animation__out', {'property': 'position','to':'-1 -0.025 0.05','startEvents': 'outAnimation','dur': '500'});
+  
+    notify.setAttribute('animation__in', {'property': 'position','from':'-1 0.25 -0.5','to':'0.0 0.25 -0.5','startEvents': 'inAnimation','dur': '500'});
+    text_notify.setAttribute('animation__in', {'property': 'position','from':'-1 -0.025 0.05','to':'-0.085 -0.025 0.05','startEvents': 'inAnimation','dur': '500'});
+  }
+
 
   notify.emit('inAnimation',null,false);
   text_notify.emit('inAnimation',null,false);
