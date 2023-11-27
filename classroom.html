@@ -78,7 +78,9 @@
                 <a-entity value="pencil" id="pencil" gltf-model="#pencil-gltf" rotation="55 0 215" scale="2 2 2" position="-1.32881 1.06062 0.03253" button=""></a-entity>
                 <a-entity value="cenario" obj-model="obj: #cenario-o; mtl: #cenario-m" position="0 0 0"></a-entity>
                 <a-entity id="backpack" value="backpack" obj-model="obj: #backpack-o; mtl: #backpack-m" scale="0.2 0.2 0.2" rotation="0 180 0" position="2.874 1.009 -1.064" button=""></a-entity>
-                <a-plane position="0.8042 0 -0.10388" rotation="-90 0 0" width="200" height="200" color="#7BC8A4" material="" geometry="" scale="0.05 0.04 1"></a-plane>
+                <a-plane position="0.8042 0 -0.10388" rotation="-90 0 0" width="200" height="200" color="#7BC8A4" material="" geometry="" scale="0.05 0.04 1">
+                  <a-sound id="mySound" autoplay="true" loop="true" src="assets/playground-7156.mp3"></a-sound>
+                </a-plane>
                 
                 <a-entity id="player">
                   <!-- camera -->
@@ -92,7 +94,6 @@
                     >
                   </a-entity>
                 <a-camera>  
-                <a-cursor id="cursor" visible="false" color="#FF5733"> </a-cursor>
                 <a-box value='1' id="myBox" color="#FF5733" position="0.0 0 -0.5" width="0.60" height="1.4" depth="0.0000000000000000001" material="shader: flat" geometry="depth: 0" visible="" scale="0.3 0.3 0.3">
                   <a-text id="text_list" position="0.26973 0.07453 0.05" color="#000000" width="0.5" height="0.5" anchor="center" font="kelsonsans" scale="2 2 2" list="" text=""></a-text>
                   <a-text id="timer" position="-0.22181 -0.60 0.006" color="#118" text="" scale="0.2 0.3 0.5" value="Time: 00:47"></a-text>
@@ -103,6 +104,9 @@
               </a-box>
               </a-camera>
             </a-entity>
+            <a-assets>
+              <audio id="musicbox" src="" ></audio>
+            </a-assets>
           </a-scene>
     </body>
     </html>

@@ -8,19 +8,31 @@
       <script src="home.js"></script>
   </head>
   <body>
-    <a-scene> 
-      <a-entity laser-controls="hand: right" ></a-entity> 
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="cenario-o" src="assets/grass.obj"></a-asset-item>
+        <a-asset-item id="cenario-m" src="assets/Garage.mtl"></a-asset-item>
+    </a-assets>
+    <a-entity value="cenario" id="cenario" obj-model="obj: #cenario-o;" material="src: assets/2.jpg;repeat: "scale = "0.1 0.1 0.1"position="0 -1 0"></a-entity>
+    <a-entity value="cenario" id="cenario-2" obj-model="obj: assets/grass.obj" material="src: assets/2.jpg" scale="0.1 0.1 0.1" position="-55.29743 -1 0"></a-entity>
+    <a-entity value="cenario" id="cenario-3" obj-model="obj: assets/grass.obj" material="src: assets/2.jpg" scale="0.1 0.1 0.1" position="0 -1 -54.52131"></a-entity>
+    <a-entity value="cenario" id="cenario-4" obj-model="obj: assets/grass.obj" material="src: assets/2.jpg" scale="0.1 0.1 0.1" position="54.86802 -1 -54.972"></a-entity>
+    <a-entity value="cenario" id="cenario-5" obj-model="obj: assets/grass.obj" material="src: assets/2.jpg" scale="0.1 0.1 0.1" position="-55.22912 -1 -54.61664"></a-entity> 
+    <a-entity value="cenario" id="cenario-6" obj-model="obj: assets/grass.obj" material="src: assets/2.jpg" scale="0.1 0.1 0.1" position="54.85729 -1 0"></a-entity>
+    
+    <a-sky src="assets/skyyyy.jpg" radius="300" rotation="0 -90 0" position="0 30 0"></a-sky> 
+    <a-plane position="0 0 -4" rotation="-90 0 0" width="200" height="200" color="#7BC8A4" material="" geometry="" scale="0.5 0.5 0.5" visible="false"></a-plane>
+    <a-entity id="cursor" laser-controls="hand: right" ></a-entity> 
       <a-camera camera="" position="0 1.6 3.87964" rotation="" look-controls="" wasd-controls="" data-aframe-inspector-original-camera="">
-        <a-cursor id="cursor" color="#FF5733" visible="false" material="" raycaster="" cursor="" geometry=""> </a-cursor>
         <a-box id="myBox" color="#FF5733" position="0 0.00253 -0.49974" width="0.70" height="0.3" depth="0.0000000000000000001" material="shader: flat" geometry="depth: 0" visible="false" scale="0.5 1 0.5">
           <a-text value="Escolhe um dos mapas.\nProcura os objetos.\nCompleta as tarefas.\nAprende as palavras!\n\nControlos:\nTrigger: selecionar\nA: ocultar lista\nB: voltar a Home\nJoystick: saltar" position="0.19811 0.00608 0.00055" color="#000000" width="0.5" height="0.5" anchor="center" font="kelsonsans" scale="2 1 2" text=""></a-text>
         </a-box>
       </a-camera>
       <a-box value="garage" position="1.66161 0.49 -3.77246" rotation="0 -26.90151439698241 0" color="#FF1111" button="" material="" geometry="">
-        <a-text value="garage" position="0.00374 0.19068 0.50086" align="center" width="4" color="#000" text=""></a-text>
+        <a-text if="garage" value="garage" position="0.00374 0.19068 0.50086" align="center" width="4" color="#000" text=""></a-text>
       </a-box>
       <a-box value="classroom" position="-0.1 0.49 -3.51628" rotation="0 19.39863206974428 0" color="#11EE00" button="" material="" geometry="">
-        <a-text value="classroom" position="0.00374 0.19068 0.50086" align="center" width="4" color="#000" text=""></a-text>
+        <a-text id="classroom" value="classroom" position="0.00374 0.19068 0.50086" align="center" width="4" color="#000" text="classroom"></a-text>
       </a-box>
       <a-box value="how to play?" position="-3.98613 0.49009 -2.43418" rotation="0 29.953660571644306 0" color="#FFFFFF" material="" geometry="" button2="">
         <a-text value="how\nto\nplay?" position="0.00374 0.09068 0.50086" align="center" width="5" color="#000" text=""></a-text>
@@ -28,7 +40,9 @@
       <a-box value="dvr" scale="10 10 10" position="-5.60618 6.767 -22.53256" rotation="0 29.954000000000004 0" color="#F00FFF" width="1.70" height="0.3" material="" geometry="width: 2.5">
         <a-text value="Welcome to DuolingoVR" position="0.00374 0.01834 0.50086" align="center" width="5" color="#000" text=""></a-text>
       </a-box>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="200" height="200" color="#7BC8A4" material="" geometry=""></a-plane>
-    </a-scene>
+      <a-box id="Guide" color="yellow" position="0.69482 1.613 -3.715" width="0.70" height="0.3" depth="0.0000000000000000001" material="shader: flat" geometry="depth: 0" visible="false" scale="4 2 0.1">
+        <a-text value="Pressiona o Trigger para entrar!" position="0.16627 0.00608 0.55" color="#000000" width="0.5" height="0.5" anchor="center" font="kelsonsans" scale="2 7 2" text=""></a-text>
+      </a-box>
+      </a-scene>
   </body>
 </html>
