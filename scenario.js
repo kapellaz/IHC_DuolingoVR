@@ -236,11 +236,11 @@ function notifyObject(text){
 
   text_notify.setAttribute('value',text);
 
-  notify.setAttribute('animation__out', {'property': 'position','to':'-2 0.35 -0.5','startEvents': 'outAnimation','dur': '500'});
-  text_notify.setAttribute('animation__out', {'property': 'position','to':'-2 -0.035 0.05','startEvents': 'outAnimation','dur': '500'});
+  notify.setAttribute('animation__out', {'property': 'position','to':'-1.0 0.20 -0.5','startEvents': 'outAnimation','dur': '500'});
+  text_notify.setAttribute('animation__out', {'property': 'position','to':'-1 -0.02 0.05','startEvents': 'outAnimation','dur': '500'});
 
-  notify.setAttribute('animation__in', {'property': 'position','from':'-2 0.35 -0.5','to':'-0.73 0.35 -0.5','startEvents': 'inAnimation','dur': '500'});
-  text_notify.setAttribute('animation__in', {'property': 'position','from':'-2 -0.035 0.05','to':'-0.01 -0.035 0.05','startEvents': 'inAnimation','dur': '500'});
+  notify.setAttribute('animation__in', {'property': 'position','from':'-2 0.35 -0.5','to':'0.0 0.20 -0.5','startEvents': 'inAnimation','dur': '500'});
+  text_notify.setAttribute('animation__in', {'property': 'position','from':'-1 -0.02 0.05','to':'-0.08 -0.02 0.05','startEvents': 'inAnimation','dur': '500'});
 
   notify.emit('inAnimation',null,false);
   text_notify.emit('inAnimation',null,false);
